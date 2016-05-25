@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <body>
+	  <div id="page" data-role="page" data-theme="b">
+		  <div data-role="header" data-theme="b" style="margin-bottom: 10px">
+			<h1> Functionality</h1>
+			<a href="../indexhtml.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+			</div>
+			<table id='grid'></table>
+			<div id='pager'></div>
+			<script type='text/javascript'>
+			var data= [
+				{"Integer":200000,"Number":60000000.73,"Currency":34.2,"Email":"john.smith@yahoo.com","Link":"http://www.yahoo.com","Checkbox":"Yes"},
+				{"Integer":1600000,"Number":75200000.23,"Currency":245.2,"Email":"joe.woe@google.com","Link":"http://www.google.com","Checkbox":"Yes"},
+				{"Integer":652693,"Number":34534000.33,"Currency":18545.2,"Email":"julia.bergman@bing.com","Link":"http://www.bing.com","Checkbox":"No"},
+				{"Integer":1237,"Number":3450.3,"Currency":55597545.2,"Email":"roy.corner@msn.com","Link":"http://www.msn.com","Checkbox":"No"}
+			];
+			jQuery('#grid').jqGrid({
+				"width":"650",
+				"hoverrows":false,
+				"viewrecords":true,
+				"gridview":true,
+				"datatype":"local",
+				"data": data,
+				"autowidth":true,
+				"colModel":[
+					{"name":"Integer","width":80,"formatter":"integer","formatoptions":{"thousandsSeparator":","},"sorttype":"integer","editable":true, "key": true},
+					{"name":"Number","width":80,"formatter":"number","formatoptions":{"decimalPlaces":1},"sorttype":"number","editable":true},
+					{"name":"Currency","width":80,"formatter":"currency","formatoptions":{"decimalPlaces":1,"thousandsSeparator":",","prefix":"$","suffix":" USD"},"sorttype":"currency","editable":true},
+					{"name":"Email","width":120,"formatter":"email","editable":true},
+					{"name":"Link","width":120,"formatter":"link","editable":true},
+					{"name":"Checkbox","width":50,"formatter":"checkbox","editable":true}
+				],
+				"loadError":function(xhr,status, err){ 
+					try {
+						jQuery.jgrid.info_dialog(jQuery.jgrid.errors.errcap,'<div class="ui-state-error">'+ xhr.responseText +'</div>', jQuery.jgrid.edit.bClose,{buttonalign:'right'});
+					} catch(e) { 
+						alert(xhr.responseText);
+					} 
+				},
+				"pager":"#pager"});
+		setTimeout(function() {
+			SyntaxHighlighter.highlight({useScriptTags:false}, '')},
+		100);
+			
+		</script>
+	<div data-role="collapsible" data-theme="b" data-content-theme="b">
+	<h3>View Code</h3>
+	<pre>
+	<!-- HTML Definition -->
+
+	&lt;div id="page" data-role="page" data-theme="b">
+    ...
+		&lt;table id='grid'&gt;&lt;/table&gt;
+		&lt;div id='pager'&gt;&lt;/div&gt;
+
+		<!-- Java Script Code -->
+		&lt;script type='text/javascript'&gt;
+
+		var data= [
+			{"Integer":200000,"Number":60000000.73,"Currency":34.2,"Email":"john.smith@yahoo.com","Link":"http://www.yahoo.com","Checkbox":"Yes"},
+			{"Integer":1600000,"Number":75200000.23,"Currency":245.2,"Email":"joe.woe@google.com","Link":"http://www.google.com","Checkbox":"Yes"},
+			{"Integer":652693,"Number":34534000.33,"Currency":18545.2,"Email":"julia.bergman@bing.com","Link":"http://www.bing.com","Checkbox":"No"},
+			{"Integer":1237,"Number":3450.3,"Currency":55597545.2,"Email":"roy.corner@msn.com","Link":"http://www.msn.com","Checkbox":"No"}
+		];
+		jQuery('#grid').jqGrid({
+			"width":"650",
+			"hoverrows":false,
+			"viewrecords":true,
+			"gridview":true,
+			"datatype":"local",
+			"data": data,
+			"autowidth":true,
+			"colModel":[
+				{"name":"Integer","width":80,"formatter":"integer","formatoptions":{"thousandsSeparator":","},"sorttype":"integer","editable":true, "key": true},
+				{"name":"Number","width":80,"formatter":"number","formatoptions":{"decimalPlaces":1},"sorttype":"number","editable":true},
+				{"name":"Currency","width":80,"formatter":"currency","formatoptions":{"decimalPlaces":1,"thousandsSeparator":",","prefix":"$","suffix":" USD"},"sorttype":"currency","editable":true},
+				{"name":"Email","width":120,"formatter":"email","editable":true},
+				{"name":"Link","width":120,"formatter":"link","editable":true},
+				{"name":"Checkbox","width":50,"formatter":"checkbox","editable":true}
+			],
+			"loadError":function(xhr,status, err){ 
+				try {
+					jQuery.jgrid.info_dialog(jQuery.jgrid.errors.errcap,'<div class="ui-state-error">'+ xhr.responseText +'</div>', jQuery.jgrid.edit.bClose,{buttonalign:'right'});
+				} catch(e) { 
+					alert(xhr.responseText);
+				} 
+			},
+			"pager":"#pager"});
+		...
+		&lt;/script&gt;
+	&lt;/div&gt;
+	</pre>
+	</div>
+</div>
+</body>
+</html>

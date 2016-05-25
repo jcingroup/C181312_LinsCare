@@ -1,0 +1,6 @@
+﻿2013-07-17 13:31:13.114=>[LogicError][I:0,::1,IE.10.0][a_ProductType.GetDataMaster][M:<[序列未包含項目][   於 System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.GetDataByKey[m_Module]() 於 d:\300.TeamProjectWork\020_JcinRoom\C16608_派肯金屬\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1504
+   於 ProcCore.Business.Logic.a_ProductType.GetDataMaster(Int32 id, Int32 accountId) 於 d:\300.TeamProjectWork\020_JcinRoom\C16608_派肯金屬\PGCode\Work.BusinessLogic\BusinessLogic.cs: 行 5092]>]
+2013-07-17 13:32:09.153=>[LogicError][I:0,::1,IE.10.0][a_ProductType.GetDataMaster][M:<[序列未包含項目][   於 System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.GetDataByKey[m_Module]() 於 d:\300.TeamProjectWork\020_JcinRoom\C16608_派肯金屬\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1504
+   於 ProcCore.Business.Logic.a_ProductType.GetDataMaster(Int32 id, Int32 accountId) 於 d:\300.TeamProjectWork\020_JcinRoom\C16608_派肯金屬\PGCode\Work.BusinessLogic\BusinessLogic.cs: 行 5092]>]

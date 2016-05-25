@@ -1,0 +1,15 @@
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Debug\Proc.BusinessLogic.dll
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Debug\Proc.BusinessLogic.pdb
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Debug\Proc.DatabaseCore.dll
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Debug\Proc.DotNetExtension.dll
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Debug\Proc.ExceptionDefine.dll
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Debug\Proc.LogWriteHelper.dll
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Debug\Proc.ProjectHelper.dll
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Debug\MySql.Data.dll
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Debug\Proc.DatabaseCore.pdb
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Debug\Proc.DotNetExtension.pdb
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Debug\Proc.ExceptionDefine.pdb
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Debug\Proc.LogWriteHelper.pdb
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Debug\Proc.ProjectHelper.pdb
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\obj\Debug\Proc.BusinessLogic.dll
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\obj\Debug\Proc.BusinessLogic.pdb

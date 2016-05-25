@@ -1,0 +1,206 @@
+﻿@import "base/reset.css";
+@import "base/basic.css";
+@import "base/layout.css";
+
+@charset "utf-8";
+
+/*      layout
+-----------------------------------------------------------------------*/
+
+
+
+
+/*      content
+-----------------------------------------------------------------------*/
+
+/* AboutUs */
+.AboutUs #content ul {
+ margin-bottom:30px;
+ }
+.AboutUs #content ul li {
+ padding:3px 0 3px 10px;
+ background:url('../images/arrow.gif') no-repeat left center;
+ }
+.AboutUs #content ul li strong {
+ color:#839C3C;
+ margin-right:5px;
+ }
+.AboutUs #content ol {
+ margin-top:20px;
+ }
+
+/* Products_list */
+#content> ol {
+ margin-left:-12px;
+ clear:both;
+ overflow:hidden;
+ }
+#content> ol li {
+ float:left;
+ width:170px;
+ height:140px;
+ margin:0 0 60px 14px;
+ text-align:center;
+ background:#fff;
+ border:1px solid #E6E6E6;
+ }
+#content> ol li a img {
+ width:auto; max-width:100%;
+ height:100%;
+ }
+#content> ol li a em {
+ display:block;
+ }
+
+/* Products */
+.Products #content p.floatL {
+ display:table-cell;
+ vertical-align:middle;
+ width:350px;
+ margin-bottom: 30px;
+ text-align:right;
+ }
+ .Products #content p.floatL .propic {
+ 	display: block;
+ 	width:350px;
+ 	height:290px;
+ 	margin-bottom:15px;
+ 	text-indent:0;
+ 	text-align:center;
+ 	background:#fff;
+ 	border:1px solid #E6E6E6;
+ }
+.Products #content p.floatL .propic img {
+ vertical-align:middle;
+ width:auto; max-width:100%;
+ height:100%;
+ }
+.Products #content p.floatL span {
+	margin-top:10px;
+	}
+.Products #content dl.pro {
+ float:right;
+ width:358px;
+ margin-bottom:30px;
+ }
+.Products #content .pro dt {
+ margin:0 0 10px 0;
+ padding-bottom:10px;
+ font:bold 1.1em '微軟正黑體','Microsoft JhengHei',Tahoma, sans-serif;
+ color:#C28F01;
+ background:url('../images/dot.gif') repeat-x left bottom;
+ }
+.Products #content .pro dd {
+ padding:5px 0;
+ }
+.Products #content .pro dd ul {
+ margin:5px 0;
+ }
+.Products #content .pro dd li {
+ font-size:0.9em;
+ }
+.Products #content dl.detail {
+ line-height: 150%;
+ margin-bottom:20px;
+ overflow:hidden;
+ }
+.Products #content .detail dt {
+ float:left;
+ clear:left;
+ width:5em;
+ margin-right:7px;
+ text-align:right;
+ font-weight:bold;
+ }
+.Products #content .detail dd {
+ float:left;
+ width:42.5em;
+ margin-bottom:8px;
+ }
+.Products #content .pro dd li,
+.Products #content .detail dd li {
+ padding:3px 0 3px 19px;
+ text-indent:-19px;
+ border-bottom:1px solid #E7E7E7;
+ }
+.Products #content .pro dd li em,
+.Products #content .detail dd li em {
+ color:#5A6C24;
+ }
+
+/* Story */
+.Story #content li {
+	display: inline-block;
+	height:90px;
+	margin:3px;
+	padding:5px;
+	*display: inline;
+	zoom:1;
+	border:1px solid #ddd;
+}
+.Story #content li img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+/* ContactUs */
+.ContactUs #content h4 {
+ float:right;
+ width:320px;
+ margin:0;
+ clear:none;
+ }
+.ContactUs #content iframe {
+ float:left;
+ border:3px solid #E6E6E6;
+ }
+.ContactUs #content ul {
+ float:right;
+ width:320px;
+ margin-bottom:15px;
+ }
+.ContactUs #content li {
+ margin-left:40px;
+ padding:3px 0;
+ text-indent:-40px;
+ }
+
+/* News_list */
+.News #content ul {
+ margin-bottom:10px;
+ }
+.News #content li {
+ padding:8px 0;
+ background:url('../images/dot.gif') repeat-x left bottom;
+ }
+.News #content li strong {
+ color:#C28F01;
+ font-size:0.8em;
+ margin-right:5px;
+ }
+
+/* News */
+.News #content h4 em {
+ margin-right:10px;
+ font-size:0.8em;
+ color:#7A6022;
+ }
+#news_content {
+ margin-bottom:10px;
+ padding-bottom:5px;
+ border-bottom:1px solid #DBD3B4;
+ }
+/* 編輯器 */
+.News #news_content em {
+ font-style:italic;
+ }
+.News #news_content ol {
+ list-style:decimal inside;
+ }
+.News #news_content li {
+ padding:3px 0 3px 10px;
+ background:url('../images/arrow.gif') no-repeat 0 11px;
+ }
+.News #news_content img {
+ max-width:100%;
+ }

@@ -1,0 +1,90 @@
+﻿@model ProcCore.Business.Logic.m_ProgData
+@using ProcCore.Business.Logic;
+@using ProcCore;
+@using ProcCore.JqueryHelp;
+@using ProcCore.JqueryHelp.DateTimePickerHelp;
+@using ProcCore.JqueryHelp.AjaxFormObj;
+@using ProcCore.JqueryHelp.FormvValidate;
+
+@section IncludeScript{
+    @Html.Partial("includeScript_Comm")}
+
+@section menu{
+    @Html.Raw(Session["MenuHtmlString"].ToString())
+}
+@{
+    MVCFormHelper mFormHelper = new MVCFormHelper(this.ViewContext, CommWebSetup.eleNameMasterDataForm);
+
+    //以下為欄位規則設定
+    mFormHelper.formValidate.Add(Html.FieldsRuleSetup(x => x.area, new FieldRule { required = true }, null, null));
+    mFormHelper.formValidate.Add(Html.FieldsRuleSetup(x => x.controller, new FieldRule { required = true }, null, null));
+    mFormHelper.formValidate.Add(Html.FieldsRuleSetup(x => x.area, new FieldRule { required = true }, null, null));
+    mFormHelper.formValidate.Add(Html.FieldsRuleSetup(x => x.power_serial, new FieldRule { required = true }, null, null));
+    //mFormHelper.LastAppenScript += Html.SetCommCKEditor("Context");
+}
+@Html.HiddenFor(x => x.id)
+@Html.HiddenFor(x => x.EditType)
+
+<div class="@ViewBag.css_Edit_Master_CaptionCss">
+    @ViewBag.Caption
+</div>
+<div class="@ViewBag.css_EditFormNoteCss">
+    *為必填欄位
+</div>
+<fieldset>
+    <legend class="@ViewBag.css_Edit_Subtitle_CaptionCss">@Html.Lang("BaseData")</legend>
+    <div>
+        <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.prog_name)：</label>
+        @Html.TextBoxFor(x => x.prog_name, new { @maxlength = 24, @size = 48 })
+    </div>
+    <div>
+        <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.sort)：</label>
+        @Html.TextBoxFor(x => x.sort, new { @maxlength = 8, @size = 8 })
+    </div>
+    <div>
+        <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.area)：</label>
+        @Html.TextBoxFor(x => x.area, new { @maxlength = 24, @size = 48 })
+    </div>
+    <div>
+        <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.controller)：</label>
+        @Html.TextBoxFor(x => x.controller, new { @maxlength = 24, @size = 48 })
+    </div>
+    <div>
+        <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.action)：</label>
+        @Html.TextBoxFor(x => x.action, new { @maxlength = 24, @size = 48 })
+    </div>
+    <div>
+        <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.isfolder)：</label>
+        @Html.RadioButtonFor(x => x.isfolder, true)是 @Html.RadioButtonFor(x => x.isfolder, false)否
+    </div>
+    <div>
+        <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.ishidden)：</label>
+        @Html.RadioButtonFor(x => x.ishidden, true)是 @Html.RadioButtonFor(x => x.ishidden, false)否
+    </div>
+    <div>
+        <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.power_serial)：</label>
+        @foreach (Power p in Model.PowerItem.Powers)
+        {
+            <input type="checkbox" id="GetPowerItems" name="GetPowerItems" value="@p.ManagementIntSerial" 
+                @if (p.IsManagement)
+                {
+                    @:checked="checked"
+                    } />@p.name        
+        }
+    </div>
+</fieldset>
+<div class="@ViewBag.css_EditFormNavigationFunctionCss">
+    @Html.FrameworkButton("btn_submit", Model.EditType == EditModeType.Insert ? Resources.Res.Button_Sure_Insert : Resources.Res.Button_Sure_Modify, FrameworkIcons.ui_icon_check)
+    &nbsp;
+    @Html.FrameworkButton("btn_return_list", Resources.Res.Button_Return, FrameworkIcons.ui_icon_arrowreturnthick_1_w)
+    <input type="hidden" id="returnQueryString" name="returnQueryString" value="@Html.Raw(ViewBag.QueryString)" />
+</div>
+@{mFormHelper.FormEnd();}
+<script type="text/javascript">
+
+    $(document).ready(function () {
+    });
+
+    (function ($) {
+    })(jQuery);
+</script>

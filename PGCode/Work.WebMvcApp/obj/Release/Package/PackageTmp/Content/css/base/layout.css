@@ -1,0 +1,316 @@
+﻿@charset "utf-8";
+
+/*      layout
+-----------------------------------------------------------------------*/
+#container {
+ width:980px;
+ margin:0 auto;
+ padding-bottom:20px;
+ text-align:left;
+ background:url('../../images/bg2.jpg') no-repeat 0 20px;
+ overflow:hidden;
+ }
+#header {
+ position:relative;
+ height:473px;
+ margin-bottom:15px;
+ }
+#sidebar {
+ float:left;
+ width:220px;
+ margin-top:22px;
+ }
+#content {
+ float:right;
+ width:732px;
+ }
+#footer {
+ width:100%; min-width:980px;
+ height:40px;
+ padding:70px 0 15px 0;
+ text-align:center;
+ font:normal 0.9em '微軟正黑體','Microsoft JhengHei',Tahoma, sans-serif;
+ color:#839C3C;
+ background:url('../../images/footer.jpg') no-repeat center top;
+ }
+
+
+/*      header
+-----------------------------------------------------------------------*/
+h1 {
+ position:absolute;
+ left:16px;
+ top:22px;
+ width:275px;
+ height:151px;
+ text-indent:-9999px;
+ background:url('../../images/logo.png') no-repeat 0 0;
+ z-index:100;
+ }
+#header .nav {
+ position:absolute;
+ top:18px;
+ right:-10px;
+ }
+#header .nav li {
+ float:left;
+ margin-right:10px;
+ font-size:.8em;
+ }
+#header .nav li a {
+ display:block;
+ height:16px;
+ padding-left:5px;
+ color:#BCB396;
+ line-height:16px;
+ border-left:3px solid #BCB396;
+ }
+#header .nav li a:hover {
+ color:#7A6022;
+ }
+#header .menu {
+ position:absolute;
+ top:115px;
+ right:0;
+ }
+#header .menu li {
+ float:left;
+ }
+#header .menu li a {
+ display:block;
+ width:130px;
+ padding-bottom:8px;
+ text-align:center;
+ font:bold 1.2em '微軟正黑體','Microsoft JhengHei',Tahoma, sans-serif;
+ color:#4F4032;
+ }
+#header .menu li a:hover,
+.AboutUs #header .menu li.nav1 a,
+.Products #header .menu li.nav2 a,
+.News #header .menu li.nav3 a,
+.Story #header .menu li.nav4 a,
+.ContactUs #header .menu li.nav5 a {
+ color:#8A6709;
+ border-bottom:5px solid #8A6709;
+ }
+ 
+
+/* banner換圖 */
+#slider {
+    background: url('../../images/loading.gif') no-repeat 50% 50%;
+    width:976px; height:320px;
+    position:absolute;
+    top:153px;
+    left:0;
+    border-left:2px solid #fff;
+    border-right:2px solid #fff;
+    overflow: hidden;
+    }
+#slider img {
+    position:absolute;
+    top:0px; left:0px;
+    max-width: none;
+    /*display:none;*/
+    }
+#slider a {
+    border:0;
+    display:block;
+    }
+.nivo-main-image {
+    display: block !important;
+    position: relative !important; 
+    width: 100% !important;
+    }
+/* If an image is wrapped in a link */
+#slider a.nivo-imageLink {
+    background:white;
+    display:none;
+    
+    width:100%; height:100%;
+    position:absolute;
+    top:0px; left:0px;
+    z-index:6;
+    
+    filter:alpha(opacity=0); 
+    opacity:0;
+    }
+/* The slices and boxes in the Slider */
+.nivo-slice {
+    display:block;
+    height:100%;
+    position:absolute;
+    top:0;
+    z-index:5;
+    }
+.nivo-box {
+    display:block;
+    position:absolute;
+    z-index:5;
+    overflow:hidden;
+    }
+.nivo-box img { display:block; }
+/* Caption styles */
+.nivo-caption {
+    background:#000;
+    color:#fff;
+    font-family: Helvetica, Arial, sans-serif;
+    display: none;
+    overflow: hidden;
+    
+    padding: 5px 10px;
+    width:100%;
+    
+    position:absolute;
+    left:0px;bottom:0px;
+    z-index:8;
+    
+    opacity: 0.8;
+    -moz-opacity: 0.8;
+    filter:alpha(opacity=8);
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    }
+.nivo-caption p {
+    padding:5px;
+    margin:0;
+    }
+.nivo-caption a {
+    display:inline !important;
+    color:#fff;
+    border-bottom:1px dotted #fff;
+    }
+.nivo-html-caption {
+    display:none;
+    }
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav {
+ position:absolute;
+ bottom:0;
+ right:0;
+ z-index:9;
+    text-align:center;
+    padding: 15px 0;
+    display:none;
+    }
+.nivo-controlNav a {
+    background:url('../../images/bullets.png') no-repeat;
+    border:0;
+    text-indent:-9999px;
+    cursor:pointer;
+    display:inline-block;
+    
+    width:22px; height:22px;
+    margin: 0 2px;
+    }
+.nivo-controlNav a.active {
+    font-weight:bold;
+    background-position:0 -22px;
+    }
+
+.nivo-controlNav.nivo-thumbs-enabled {
+    width: 100%;
+    }
+.nivo-controlNav.nivo-thumbs-enabled a {
+    width: auto;
+    height: auto;
+    background: none;
+    margin-bottom: 5px;
+    }
+.nivo-controlNav.nivo-thumbs-enabled img {
+    display: block;
+    width: 120px;
+    height: auto;
+    }
+
+
+/*      sidebar & breadCrumb & gotop
+-----------------------------------------------------------------------*/
+.breadCrumb {
+ float:right;
+ width:auto;
+ font-size:.8em;
+ }
+.breadCrumb li {
+ float:left;
+ margin-left:7px;
+ color:#A89D74;
+ }
+.breadCrumb li.s {
+ color:#BCB396;
+ }
+.breadCrumb li a {
+ color:#BCB396;
+ }
+.breadCrumb li a:hover {
+ color:#A89D74;
+ }
+#sidebar ul {
+ margin-bottom:20px;
+ overflow:hidden;
+ }
+#sidebar ul.news li {
+ margin-bottom:-1px;
+ padding:8px 0;
+ border-bottom:1px solid #DBD3B4;
+ }
+#sidebar ul.news li em {
+ display:block;
+ color:#C28F01;
+ font-weight:bold;
+ font-size:0.8em;
+ }
+#sidebar ul.pro li {
+ margin-bottom:-1px;
+ padding:8px 0;
+ font:bold 1.1em '微軟正黑體','Microsoft JhengHei',Arial, sans-serif;
+ color:#7A6022;
+ border-bottom:1px solid #DBD3B4;
+ }
+#sidebar ul.pro li a {
+ color:#C68C00;
+ }
+#sidebar ul.pro li a:hover {
+ color:#839C3C;
+ }
+#sidebar ol li img {
+ max-width:220px;
+ }
+.goTop {
+ position:fixed;
+ display:none;
+ right:5%;
+ bottom:5%;
+ padding:3px;
+ font-size:0.8em;
+ color:#A89D74;
+ background:#fff;
+ border:1px solid #E6E6E6;
+ }
+
+
+/*      footer
+-----------------------------------------------------------------------*/
+#footer a {
+ color:#839C3C;
+ }
+#footer a:hover {
+ color:#C28F01;
+ }
+#footer ul {
+ width:394Px;
+ margin:0 auto 10px auto;
+ overflow:hidden;
+ }
+#footer li {
+ float:left;
+ margin-right:-1px;
+ padding:0 10px;
+ border-right:1px solid #DBD3B4;
+ }
+#footer li a {
+ display:block;
+ }
+#footer p {
+ font-size:0.9em;
+ }

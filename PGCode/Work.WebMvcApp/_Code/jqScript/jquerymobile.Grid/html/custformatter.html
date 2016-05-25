@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <body>
+	  <div id="page" data-role="page" data-theme="b">
+		  <div data-role="header" data-theme="b" style="margin-bottom: 10px">
+			<h1> Functionality</h1>
+			<a href="../indexhtml.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+		  </div>
+			<table id='grid'></table>
+			<div id='pager'></div>
+			<script type='text/javascript'>
+			var data= [];
+			for(var i=0; i<9;i++)
+			{
+				data.push({
+					"ID":i+1,
+					"PhotoFileName":(i+1)+".jpg",
+					"Photo":(i+1)+".jpg",
+					"Rating": Math.floor(Math.random()*30) 
+				});
+			}
+			jQuery('#grid').jqGrid({
+				"width":700,
+				"hoverrows":false,
+				"viewrecords":true,
+				"jsonReader":{"repeatitems":false,"subgrid":{"repeatitems":false}},
+				"gridview":true,
+				"rowNum":5,
+				"rowList":[5,7,10],
+				"colModel":[
+					{"name":"ID","width":50,"key":true,"editable":true},
+					{"name":"PhotoFileName","width":100,"editable":true},
+					{"name":"Photo","width":100,"formatter":formatImage,"unformat":unformatImage,"editable":true},
+					{"name":"Rating","sorttype":"integer","formatter":formatRating,"unformat":unformatRating,"editable":true}
+				],
+				"data": data,
+				"datatype":"local",
+				"height":350,
+				"loadError":function(xhr,status, err){ 
+					try {jQuery.jgrid.info_dialog(jQuery.jgrid.errors.errcap,
+							'<div class="ui-state-error">'+ xhr.responseText +'</div>', 
+							jQuery.jgrid.edit.bClose,
+							{buttonalign:'right'}
+						);} catch(e) { alert(xhr.responseText);} 
+				},
+				"pager":"#pager"});
+			function formatImage(cellValue, options, rowObject) {
+				var imageHtml = "<img src='images/" + cellValue + "' orignalValue='" + cellValue + "' />";
+				return imageHtml;
+			}
+			function unformatImage(cellValue, options, cellObject) {
+				return $(cellObject.html()).attr("originalValue");
+			}
+			function formatRating(cellValue, options, rowObject) {
+				var color = (parseInt(cellValue) > 0) ? "green" : "red";
+				var cellHtml = "<span style='color:" + color + "' originalValue='" +
+                   cellValue + "'>" + cellValue + "</span>";
+				return cellHtml;
+			}
+			function unformatRating(cellValue, options, cellObject) {
+				return $(cellObject.html()).attr("originalValue");
+			}
+				setTimeout(function() {
+					SyntaxHighlighter.highlight({useScriptTags:false}, '')},
+				100);
+			
+			</script>
+	<div data-role="collapsible" data-theme="b" data-content-theme="b">
+	<h3>View Code</h3>
+	<pre>
+	<!-- HTML Definition -->
+
+	&lt;div id="page" data-role="page" data-theme="b">
+    ...
+		&lt;table id='grid'&gt;&lt;/table&gt;
+		&lt;div id='pager'&gt;&lt;/div&gt;
+
+		<!-- Java Script Code -->
+		&lt;script type='text/javascript'&gt;
+		var data= [];
+		for(var i=0; i<9;i++)
+		{
+			data.push({
+				"ID":i+1,
+				"PhotoFileName":(i+1)+".jpg",
+				"Photo":(i+1)+".jpg",
+				"Rating": Math.floor(Math.random()*30) 
+			});
+		}
+		jQuery('#grid').jqGrid({
+			"width":700,
+			"hoverrows":false,
+			"viewrecords":true,
+			"jsonReader":{"repeatitems":false,"subgrid":{"repeatitems":false}},
+			"gridview":true,
+			"rowNum":5,
+			"rowList":[5,7,10],
+			"colModel":[
+				{"name":"ID","width":50,"key":true,"editable":true},
+				{"name":"PhotoFileName","width":100,"editable":true},
+				{"name":"Photo","width":100,"formatter":formatImage,"unformat":unformatImage,"editable":true},
+				{"name":"Rating","sorttype":"integer","formatter":formatRating,"unformat":unformatRating,"editable":true}
+			],
+			"data": data,
+			"datatype":"local",
+			"height":350,
+			"loadError":function(xhr,status, err){ 
+				try {jQuery.jgrid.info_dialog(jQuery.jgrid.errors.errcap,
+					'<div class="ui-state-error">'+ xhr.responseText +'</div>', 
+					jQuery.jgrid.edit.bClose,
+					{buttonalign:'right'}
+				);} catch(e) { alert(xhr.responseText);} 
+			},
+			"pager":"#pager"
+		});
+
+		function formatImage(cellValue, options, rowObject) {
+			var imageHtml = "<img src='images/" + cellValue + "' orignalValue='" + cellValue + "' />";
+			return imageHtml;
+		}
+		function unformatImage(cellValue, options, cellObject) {
+			return $(cellObject.html()).attr("originalValue");
+		}
+		function formatRating(cellValue, options, rowObject) {
+			var color = (parseInt(cellValue) > 0) ? "green" : "red";
+			var cellHtml = "<span style='color:" + color + "' originalValue='" +
+                  cellValue + "'>" + cellValue + "</span>";
+			return cellHtml;
+		}
+		function unformatRating(cellValue, options, cellObject) {
+			return $(cellObject.html()).attr("originalValue");
+		}
+		...
+		&lt;/script&gt;
+	&lt;/div&gt;
+	</pre>
+	</div>
+	  </div>
+   </body>
+</html>

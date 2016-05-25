@@ -1,0 +1,53 @@
+﻿2013-08-06 17:00:28.305=>[Info][I:0,::1,IE.10.0][a_Users.SystemLogin][M:登入檢查完成。]
+2013-08-06 17:00:29.218=>ajax_Login Login OK!：1
+2013-08-06 17:00:29.471=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:00:29.527=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:00:31.860=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:00:35.646=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:00:45.471=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:00:48.245=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:01:01.278=>[Info][I:0,::1,IE.10.0][a_Users.SystemLogin][M:登入檢查完成。]
+2013-08-06 17:01:02.160=>ajax_Login Login OK!：1
+2013-08-06 17:01:02.171=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:01:02.183=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:01:02.783=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:01:07.966=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:01:15.166=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:27:10.112=>不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.WebMvcApp\_Code\WebDB\C17A0_LinsCare.sdf,SeCreateFile ]
+2013-08-06 17:27:10.256=>[LogicError][I:0,::1,IE.10.0][a_Message.SearchMaster][M:<[不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.WebMvcApp\_Code\WebDB\C17A0_LinsCare.sdf,SeCreateFile ]][   於 System.Data.SqlServerCe.SqlCeConnection.Open(Boolean silent)
+   於 System.Data.SqlServerCe.SqlCeConnection.Open()
+   於 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter(SqlDataAdapter parmSqlAdp) 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1443
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter() 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1468
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter[m_Module]() 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1475
+   於 ProcCore.Business.Logic.a_Message.SearchMaster(q_Message qr, Int32 accountId) 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.BusinessLogic\BusinessLogic.cs: 行 5302]>]
+2013-08-06 17:28:02.604=>[Info][I:0,::1,IE.10.0][a_Users.SystemLogin][M:登入檢查完成。]
+2013-08-06 17:28:04.164=>ajax_Login Login OK!：1
+2013-08-06 17:28:04.426=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:28:04.505=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:28:07.744=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:28:09.671=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:29:17.831=>[Info][I:0,::1,IE.10.0][a_Users.SystemLogin][M:登入檢查完成。]
+2013-08-06 17:29:18.811=>ajax_Login Login OK!：1
+2013-08-06 17:29:19.040=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:29:19.103=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:29:21.374=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:29:22.672=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:30:47.290=>不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.WebMvcApp\_Code\WebDB\C17A0_LinsCare.sdf,SeCreateFile ]
+2013-08-06 17:30:47.472=>[LogicError][I:0,::1,IE.10.0][a_Message.SearchMaster][M:<[不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.WebMvcApp\_Code\WebDB\C17A0_LinsCare.sdf,SeCreateFile ]][   於 System.Data.SqlServerCe.SqlCeConnection.Open(Boolean silent)
+   於 System.Data.SqlServerCe.SqlCeConnection.Open()
+   於 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter(SqlDataAdapter parmSqlAdp) 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1443
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter() 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1468
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter[m_Module]() 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1475
+   於 ProcCore.Business.Logic.a_Message.SearchMaster(q_Message qr, Int32 accountId) 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.BusinessLogic\BusinessLogic.cs: 行 5302]>]
+2013-08-06 17:31:22.920=>[Info][I:0,::1,IE.10.0][a_Users.SystemLogin][M:登入檢查完成。]
+2013-08-06 17:31:23.898=>ajax_Login Login OK!：1
+2013-08-06 17:31:24.158=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:31:24.214=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:31:26.515=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 17:31:28.787=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]

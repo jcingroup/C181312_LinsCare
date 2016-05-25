@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <body>
+	  <div id="page" data-role="page" data-theme="b">
+		  <div data-role="header" data-theme="b" style="margin-bottom: 10px">
+			<h1> Subgrid, Content</h1>
+			<a href=".//indexhtml.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+		  </div>
+			<table id='grid'></table>
+			<div id='pager'></div>
+			<script type='text/javascript'>
+			jQuery('#grid').jqGrid({
+				"width":"650",
+				"hoverrows":false,
+				"viewrecords":true,
+				"jsonReader":{"repeatitems":false,"subgrid":{"repeatitems":false}},
+				"gridview":false,
+				"url":"datacustom.json",
+				"rowNum":10,
+				"height":200,
+				"rowList":[10,20,30],
+				"subGridWidth":70,
+				"sortname":"EmployeeID",
+				"subGrid":true,
+				"subGridRowExpanded":function(subgridid,id)	{
+					var data = {subgrid:subgridid, rowid:id};
+					$("#"+jQuery.jgrid.jqID(subgridid)).load('custom_detail.php',data);
+				},
+				"datatype":"json",
+				"colModel":[
+					{"name":"EmployeeID","index":"EmployeeID","sorttype":"int","key":true,"editable":true},
+					{"name":"LastName","index":"LastName","sorttype":"string","editable":true},
+					{"name":"FirstName","index":"FirstName","sorttype":"string","editable":true},
+					{"name":"Title","index":"Title","sorttype":"string","editable":true}
+				],
+				"prmNames":{"subgrid":"subgrid"},
+				"loadError":function(xhr,status, err){ 
+					try {
+						jQuery.jgrid.info_dialog(jQuery.jgrid.errors.errcap,'<div class="ui-state-error">'+ xhr.responseText +'</div>', jQuery.jgrid.edit.bClose,{buttonalign:'right'});
+					} catch(e) { 
+						alert(xhr.responseText);
+					} 
+				},
+				"pager":"#pager"
+			});
+				setTimeout(function() {
+					SyntaxHighlighter.highlight({useScriptTags:false}, '')},
+				100);
+			
+			</script>
+	<div data-role="collapsible" data-theme="b" data-content-theme="b">
+	<h3>View Code</h3>
+	<pre>
+	<!-- HTML Definition -->
+
+	&lt;div id="page" data-role="page" data-theme="b">
+    ...
+		&lt;table id='grid'&gt;&lt;/table&gt;
+		&lt;div id='pager'&gt;&lt;/div&gt;
+
+		<!-- Java Script Code -->
+		&lt;script type='text/javascript'&gt;
+			jQuery('#grid').jqGrid({
+				"width":"650",
+				"hoverrows":false,
+				"viewrecords":true,
+				"jsonReader":{"repeatitems":false,"subgrid":{"repeatitems":false}},
+				"gridview":false,
+				"url":"datacustom.json",
+				"rowNum":10,
+				"height":200,
+				"rowList":[10,20,30],
+				"subGridWidth":70,
+				"sortname":"EmployeeID",
+				"subGrid":true,
+				"subGridRowExpanded":function(subgridid,id)	{
+					var data = {subgrid:subgridid, rowid:id};
+					$("#"+jQuery.jgrid.jqID(subgridid)).load('custom_detail.php',data);
+				},
+				"datatype":"json",
+				"colModel":[
+					{"name":"EmployeeID","index":"EmployeeID","sorttype":"int","key":true,"editable":true},
+					{"name":"LastName","index":"LastName","sorttype":"string","editable":true},
+					{"name":"FirstName","index":"FirstName","sorttype":"string","editable":true},
+					{"name":"Title","index":"Title","sorttype":"string","editable":true}
+				],
+				"prmNames":{"subgrid":"subgrid"},
+				"loadError":function(xhr,status, err){ 
+					try {
+						jQuery.jgrid.info_dialog(jQuery.jgrid.errors.errcap,'<div class="ui-state-error">'+ xhr.responseText +'</div>', jQuery.jgrid.edit.bClose,{buttonalign:'right'});
+					} catch(e) { 
+						alert(xhr.responseText);
+					} 
+				},
+				"pager":"#pager"
+			});		
+		...
+		&lt;/script&gt;
+	&lt;/div&gt;
+
+	PHP CODE (custom_detail.php)
+// Connection to the server
+$conn = new PDO(DB_DSN,DB_USER,DB_PASSWORD);
+// Tell the db that we use utf-8
+$conn->query("SET NAMES utf8");
+
+$rowid = $_POST["rowid"];
+if(!$rowid) die("Missed parameters");
+// Get details
+$SQL = "SELECT * FROM employees WHERE EmployeeID=".(int)$rowid;
+
+$qres = $conn->query($SQL);
+
+$result = $qres->fetch( PDO::FETCH_ASSOC);
+$s = "&lt;table>&lt;tbody>";
+$s .= "&lt;tr>&lt;td>&lt;b>First Name&lt;/b></td>&lt;td>".$result["FirstName"]."&lt;/td>";
+$s .= "&lt;td rowspan='9' valign='top'>&lt;img src='images/".trim($rowid).".jpg'/>&lt;/td>&lt;/tr>";
+$s .= "&lt;tr>&lt;td>&lt;b>Last Name&lt;/b>&lt;/td>&lt;td>".$result["LastName"]."&lt;/td>&lt;/tr>";
+$s .= "&lt;tr>&lt;td>&lt;b>Title&lt;/b>&lt;/td>&lt;td>".$result["Title"]."&lt;/td>&lt;/tr>";
+$s .= "&lt;tr>&lt;td>&lt;b>Title of Courtesy&lt;/b>&lt;/td>&lt;td>".$result["TitleOfCourtesy"]."&lt;/td>&lt;/tr>";
+$s .= "&lt;tr>&lt;td>&lt;b>Birth Date&lt;/b>&lt;/td>&lt;td>".$result["BirthDate"]."&lt;/td>&lt;/tr>";
+$s .= "&lt;tr>&lt;td>&lt;b>Hire Date&lt;/b>&lt;/td>&lt;td>".$result["HireDate"]."&lt;/td>&lt;/tr>";
+$s .= "&lt;tr>&lt;td>&lt;b>Address&lt;/b>&lt;/td>&lt;td>".$result["Address"]."&lt;/td>&lt;/tr>";
+$s .= "&lt;tr>&lt;td>&lt;b>City&lt;/b>&lt;/td>&lt;td>".$result["City"]."&lt;/td>&lt;/tr>";
+$s .= "&lt;tr>&lt;td>&lt;b>Postal Code&lt;/b>&lt;/td>&lt;td>".$result["PostalCode"]."&lt;/td>&lt;/tr>";
+$s .= "&lt;/tbody>&lt;/table>";
+echo $s;
+
+	</pre>
+	</div>
+	  </div>
+   </body>
+</html>

@@ -1,0 +1,131 @@
+﻿@model ProcCore.Business.Logic.m_Users
+@using ProcCore;
+@using ProcCore.WebCore;
+@using ProcCore.JqueryHelp;
+@using ProcCore.JqueryHelp.DateTimePickerHelp;
+@using ProcCore.JqueryHelp.FormvValidate;
+@using ProcCore.JqueryHelp.CustomButton;
+@using ProcCore.JqueryHelp.AddValidator;
+
+@section IncludeScript{
+    @Html.Partial("includeScript_Comm")}
+@section menu{
+    @Html.Raw(Session["MenuHtmlString"].ToString())
+}
+@{
+    //產品序號是否已存在Ajax檢查
+    AjaxValidatorMethod avm_Exist_SN = new AjaxValidatorMethod("Exist_SN_Product") { funcAfter = "return !jsonobj", ErrMessage = Resources.Res.Log_Err_AccountExists };
+    avm_Exist_SN.ajax.url = "ajax_Exist_Account";
+    avm_Exist_SN.ajax.data = new DataModule();
+    avm_Exist_SN.ajax.data.Add("account", Html.GVal(x => x.account).ToString());
+
+
+    FormValidateSetup val_frm_a = new FormValidateSetup(new jqSelector() { IdName = CommWebSetup.eleNameMasterDataForm });
+
+    val_frm_a.Add(Html.FieldsRuleSetup(x => x.account, new FieldRule() { required = true }, null, new Dictionary<String, String>() { { avm_Exist_SN.Method, "true" } }));
+    val_frm_a.Add(Html.FieldsRuleSetup(x => x.name, new FieldRule() { required = true }, null, null));
+    val_frm_a.Add(Html.FieldsRuleSetup(x => x.unit, new FieldRule() { required = true }, null, null));
+    val_frm_a.Add(Html.FieldsRuleSetup(x => x.password, new FieldRule() { required = true }, null, null));
+    val_frm_a.Add(Html.FieldsRuleSetup(x => x.email, new FieldRule() { email = true }, null, null));
+
+    jqSelector jq_for_btn_rtn = new jqSelector() { IdName = "btn_return_list" };
+    jqSelector jq_for_btn_sbm = new jqSelector() { IdName = "btn_submit" };
+
+    funcMethodModule func = Html.CommSetFormOnSuccesss();
+}
+@using (Ajax.BeginForm(null, null, new AjaxOptions() { Url = Url.Action(CommWebSetup.acNameMasterDataUpdateData), HttpMethod = "post", OnSuccess = func.funcName }, new { id = CommWebSetup.eleNameMasterDataForm }))
+{
+    @Html.HiddenFor(x => x.id)
+    @Html.HiddenFor(x => x.EditType)
+    @Html.HiddenFor(x => x.type, new { @value = "N" })
+    <input type="hidden" id="returnQueryString" name="returnQueryString" value="@Html.Raw(ViewBag.QueryString)" />
+    <div class="@ViewBag.css_Edit_Master_CaptionCss">
+        @ViewBag.Caption
+    </div>
+    <div class="@ViewBag.css_EditFormNoteCss">
+        @Resources.Res.Info_StarMustEdit
+    </div>
+    <fieldset>
+        <legend class="@ViewBag.css_Edit_Subtitle_CaptionCss">@Html.Lang("BaseData")</legend>
+        <table>
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.name)</label></th>
+                <td>@Html.TextBoxFor(x => x.name, new { @maxlength = 64, @size = 16 })</td>
+            </tr>
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.unit)</label></th>
+                <td>@Html.DropDownListFor(x => x.unit, (List<SelectListItem>)ViewBag.Unit_Option)</td>
+            </tr>
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.account)</label></th>
+                <td>
+                    @if(Model.EditType== EditModeType.Insert){
+                        @Html.TextBoxFor(x => x.account, new { @maxlenght = 16, @size = 24, @title = Html.TipLang(x => x.account) })
+                    }
+                    else{
+                        @Html.SpanText(x => x.account)
+                    }
+
+                </td>
+            </tr>
+            @if (Model.EditType == EditModeType.Insert)
+            {
+                <tr>
+                    <th class="@ViewBag.css_EditFormFieldsNameCss">
+                        <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.password)</label></th>
+                    <td>@Html.PasswordFor(x => x.password, new { @maxlenght = 16, @size = 24 })</td>
+                </tr>
+            }
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.email)</label></th>
+                <td>@Html.TextBoxFor(x => x.email, new { @maxlenght = 16, @size = 64 })</td>
+            </tr>
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.isadmin)</label></th>
+                <td>@Html.RadioButtonFor(x => x.isadmin, true) 是
+                    @Html.RadioButtonFor(x => x.isadmin, false) 否</td>
+            </tr>
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.state)</label></th>
+                <td>@Html.DropDownListFor(x => x.state, (List<SelectListItem>)ViewBag.UsersState_Option)</td>
+
+            </tr>
+        </table>
+    </fieldset>
+
+    <div class="@ViewBag.css_EditFormNavigationFunctionCss">
+        <button type="submit" id="@jq_for_btn_sbm.IdName">
+            @(Model.EditType == EditModeType.Insert ? Resources.Res.Button_Sure_Insert : Resources.Res.Button_Sure_Modify)
+        </button>
+        <button type="button" id="@jq_for_btn_rtn.IdName">@Resources.Res.Button_Return</button>
+    </div>
+}
+@{
+    //===
+    jqButton btn_sbm_fmwk = new jqButton(new jqSelector() { IdName = jq_for_btn_sbm.IdName });
+    btn_sbm_fmwk.options.icons.primary = FrameworkIcons.ui_icon_check;
+
+    //===
+    jqButton btn_rtn_fmwk = new jqButton(jq_for_btn_rtn);
+    btn_rtn_fmwk.options.icons.primary = FrameworkIcons.ui_icon_arrowreturnthick_1_w;
+
+    jqElementEvent btn_rtn_evt_clk = new jqElementEvent(jq_for_btn_rtn);
+    btn_rtn_evt_clk.events.Add(new jqElementEvent.jqEvents() { htmlElementEvent = HtmlObjectEvent.click, funcString = "document.location.href='" + Url.Action(CommWebSetup.acNameEditFormReturnGridList) + "?' + $('#returnQueryString').val();" });
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        @Html.Raw(val_frm_a.ToScriptString())
+        @Html.Raw(btn_sbm_fmwk.ToScriptString())
+        @Html.Raw(btn_rtn_fmwk.ToScriptString())
+        @Html.Raw(btn_rtn_evt_clk.ToScriptString())
+        @Html.Raw(func.ToScriptString())
+        @Html.Raw(avm_Exist_SN.ToScriptString())
+    });
+    (function ($) { })(jQuery);
+</script>

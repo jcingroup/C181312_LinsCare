@@ -1,0 +1,64 @@
+﻿@model ProcCore.Business.Logic.q_Users
+@using ProcCore.Business.Logic.TablesDescription;
+@using ProcCore.JqueryHelp
+@using ProcCore.JqueryHelp.JQGridScript
+
+@{
+    UsersData Tab = new UsersData();
+}
+@section IncludeScript{
+    @Html.Partial("includeScript_Comm")
+    @Html.Partial("includeScript_Grid")
+}
+@section menu{
+    @Html.Raw(Session["MenuHtmlString"].ToString())
+}
+@using (Html.BeginForm(CommWebSetup.acNameMasterDataGridUrl,
+    ViewContext.RouteData.Values["controller"].ToString(),
+    FormMethod.Get, new { ID = CommWebSetup.eleNameSearchForm }))
+{
+    @Html.HiddenFor(x => x.page);
+    <div id="gridform">
+        <table>
+            <tr>
+                <th>@Html.LabelFor(x => x.s_account, Html.Lang(x => x.s_account))：</th>
+                <td>@Html.TextBoxFor(x => x.s_account, new { @size = "16" })</td>
+                <th>@Html.LabelFor(x => x.s_name, Html.Lang(x => x.s_name))：</th>
+                <td>@Html.TextBoxFor(x => x.s_name, new { @size = "12" })
+                </td>
+                <td>@Html.FrameworkButton(CommWebSetup.eleNameSearchButton, Resources.Res.Search, FrameworkIcons.ui_icon_search)
+                </td>
+            </tr>
+        </table>
+        <div class="gridlist">
+            @{
+                                //定義Grid需格式化的欄位，以下為ID欄位轉換成Framework ICON並可點選，設定完成代至下到的Html.JQGridHelp中的HelpColumnModule要格式化的欄位並指定給formatterColumn屬性
+                                FormatterColumnScript f_col_id = new FormatterColumnScript();
+                                f_col_id.FunctionName = CommWebSetup.funNameMasterDataFormatterID;
+                                f_col_id.FunctionString = Html.GridIDColumnCommScriptContext(CommWebSetup.MasterGridID, Url.Action(CommWebSetup.acNameEditMasterDataByID));
+            }
+            @Html.mhs_jqGrid_Standard(
+CommWebSetup.MasterGridID,
+ViewData["Caption"].ToString(),
+ViewData["Page"].ToString(),
+ViewData["AppendQuertString"].ToString(),
+Url.Action(CommWebSetup.acNameMasterDataGridUrl),
+Url.Action(CommWebSetup.acNameMasterDataDelete),
+Url.Action(CommWebSetup.acNameEditMasterDataAddNew), CommWebSetup.MasterGridDefHight, null,
+new MakeColumnModule() { CN = Resources.Res.ColModify, CM = { name = "modify", key = true, width = "30px", AssignFormatter = f_col_id } },
+new MakeColumnModule() { CN = Html.FLang(Tab.account.N), CM = { name = Tab.account.N, width = "260px" } },
+new MakeColumnModule() { CN = Html.FLang(Tab.unit.N), CM = { name = Tab.unit.N, width = "180px" } },
+new MakeColumnModule() { CN = Html.FLang(Tab.state.N), CM = { name = Tab.state.N, width = "180px" } },
+new MakeColumnModule() { CN = Html.FLang(Tab.isadmin.N), CM = { name = Tab.isadmin.N, width = "60px", hidden = true } })
+        </div>
+    </div>  
+}
+@Html.AjaxFormSearch(CommWebSetup.eleNameSearchForm, CommWebSetup.MasterGridID, CommWebSetup.eleNameSearchButton, true)
+@Html.OpenDialogPlugin(ViewData["DialogTitle"].ToString(), ViewData["DialogMessage"].ToString())
+<script type="text/javascript">
+    $(document).ready(function () {
+    });
+
+    (function ($) {
+    })(jQuery);
+</script>

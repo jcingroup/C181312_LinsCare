@@ -1,0 +1,132 @@
+﻿@using ProcCore.Business.Logic
+@using ProcCore.NetExtension
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="@Resources.ResWeb.keywords" />
+    <meta name="description" content="@Resources.ResWeb.description" />
+    <title>::@Resources.ResWeb.WebTitle::@ViewBag.Title</title>
+    <link href="~/Content/css/page.css" rel="stylesheet" type="text/css">
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
+    
+    <script type="text/javascript" src="~/Scripts/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script type="text/javascript" src="~/Scripts/fancybox/source/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="~/Scripts/fancybox/source/set.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Scripts/fancybox/source/jquery.fancybox.css" media="screen" /> 	
+    
+    <script type="text/javascript" src="~/Scripts/scroll.js"></script>
+    
+    <script type="text/javascript" src="~/Scripts/jquery.nivo.slider.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#slider').nivoSlider({
+                pauseTime: 5000,
+            });
+
+        });
+    </script>
+</head>
+
+<body class="@ViewBag.BodyClass">
+    <div id="container">
+
+        <div id="header">
+
+            <h1>@Resources.ResWeb.WebTitle</h1>
+
+            <ul class="nav">
+                <li><a href="~/AboutUs">HOME</a></li>
+                <li><a href="mailto:lins.care.nz@gmail.com">E-MAIL</a></li>
+            </ul>
+
+            <ul class="menu">
+                <li class="nav1"><a href="~/AboutUs">關於好健康</a></li>
+                <li class="nav2"><a href="~/Products/Products_list">產品介紹</a></li>
+                <li class="nav3"><a href="~/News/News_list">最新消息</a></li>
+                <li class="nav4"><a href="~/Story">品牌故事</a></li>
+                <li class="nav5"><a href="~/ContactUs">聯絡我們</a></li>
+            </ul>
+
+            <div id="slider">
+                <img src="~/Content/images/banner1.jpg" />
+                <img src="~/Content/images/banner2.jpg" />
+                <!--img src="~/Content/images/banner3.jpg" /-->
+            </div>
+
+        </div>
+        <!-- header //-->
+
+        <div id="main">
+
+            <ul class="breadCrumb">
+                <li class="s">目前位置 /</li>
+                @RenderSection("breadCrumb", false)
+                <li>@ViewBag.Title</li>
+            </ul>
+
+            <div id="sidebar">
+
+                @if (ViewBag.IsFirstPage)
+                {   //首頁
+                    <h3>最新消息<span>News</span></h3>
+                    <ul class="news">
+                        <!--最多只出現最新的5則消息，標題如太長只取前11個字-->
+
+                        @foreach (var md in ((m_Message[])ViewBag.NewsLists).Take(5))
+                        {
+                            <li><em>@md.set_date.ToString("yyyy.MM.dd")</em><a href="@Url.Action("News", "News")/@md.id">@md.title.Left(11) ...more</a></li>
+                        }
+                        <!--
+                            <li><em>2013.7.18</em><a href="~/News/News">好健康國際官網正式成立...</a></li>
+                        -->
+                    </ul>
+                }
+                else
+                {   //非首頁
+                    <h3>產品列表<span>Product Series</span></h3>
+                    <ul class="pro">
+                        <li><a href="~/Products/Products_list#c1">牛初乳奶粉 / 片</a></li>
+                        <li><a href="~/Products/Products_list#c4">羊奶片</a></li>
+                        <li><a href="~/Products/Products_list#c2">麥盧卡蜂蜜</a></li>
+                        <li><a href="~/Products/Products_list#c3">蜂蜜蒸餾酒 / 蜜酒</a></li>
+                        <li><a href="~/Products/Products_list#c5">營養棒 Nice &amp; Natural</a></li>
+                    </ul>
+                }
+
+                <!--h3>相關連結<span>Links</span></!--h3>
+    <ol>
+     <li><a href="http://www.lins-care.co.nz/"><img src="~/Content/images/links/linscare.jpg" alt="Lins Care官方網站" /></a></li>
+     <li><a href="http://www.orahoney.co.nz/"><img src="~/Content/images/links/orahoney.jpg" alt="Ora Honey官方網站" /></a></li>
+    </ol-->
+
+            </div>
+            <!-- sidebar //-->
+
+            @RenderBody()
+
+            <a class="goTop" href="#header">回頂端</a>
+
+        </div>
+        <!-- main //-->
+
+    </div>
+    <!--container //-->
+
+    <div id="footer">
+        <ul>
+            <li class="s"><a href="~/AboutUs">關於好健康</a></li>
+            <li><a href="~/Products/Products_list">產品介紹</a></li>
+            <li><a href="~/News/News_list">最新消息</a></li>
+            <li><a href="~/Story">品牌故事</a></li>
+            <li><a href="~/ContactUs">聯絡我們</a></li>
+        </ul>
+
+        <p>Copyright &copy; 2013 Lin's Care International Co.Ltd. All Rights Reserved. <span>Design by <a href="http://www.jcin.com.tw/">JCIN</a></span></p>
+
+    </div>
+    <!-- footer //-->
+    <script src="~/Scripts/GoogleAnalytics.js"></script>
+</body>
+</html>

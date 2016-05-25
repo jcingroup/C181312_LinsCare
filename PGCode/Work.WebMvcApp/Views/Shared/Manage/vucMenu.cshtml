@@ -1,0 +1,38 @@
+﻿@using ProcCore.Business.Logic;
+@using ProcCore.DatabaseCore;
+@using ProcCore.DatabaseCore.DataBaseConnection;
+@using ProcCore.DatabaseCore.DatabaseName;
+@{
+    //預設的資料庫
+    String ConnCode = System.Configuration.ConfigurationManager.AppSettings["DB00"];
+    String[] CIF = ConnCode.Split(',');
+    //直接採用預設的資料庫
+    BaseConnection BConn = new BaseConnection()
+    {
+        Server = String.IsNullOrWhiteSpace(CIF[0]) ? Server.MapPath("~") : CIF[0],
+        Account = CIF[1],
+        Password = CIF[2]
+    };
+
+    if (!(BConn.Server.EndsWith("/") || BConn.Server.EndsWith("\\")))
+    {
+        BConn.Server += "/";
+    }
+
+    ProcCore.DatabaseCore.DataBaseConnection.CommConnection conn = BConn.GetConnection();
+    SYSMenu SMenu = new SYSMenu(int.Parse(Session["ID"].ToString()), ViewData["WebAppPath"].ToString(), conn);
+}
+<ul id="WebMenu">
+    @foreach (MenuFoler MFolder in SMenu.GetMenuFolder)
+    { 
+        <li>
+            <div class="ui-widget-header">@MFolder.FolderName</div>
+            <ul>
+                @foreach (MenuItem MItem in MFolder.GetMenuItem)
+                { 
+                    <li><a href="@MItem.Link" class="ui-state-hover">@MItem.ItemName</a></li>
+                }
+            </ul>
+        </li>
+    }
+</ul>

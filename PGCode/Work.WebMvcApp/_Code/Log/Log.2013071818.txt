@@ -1,0 +1,7 @@
+﻿2013-07-18 18:26:30.509=>不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.WebMvcApp\_Code\WebDB\C17A0_LinsCare.sdf,SeCreateFile ]
+2013-07-18 18:29:23.073=>不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.WebMvcApp\_Code\WebDB\C17A0_LinsCare.sdf,SeCreateFile ]
+2013-07-18 18:33:21.235=>不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.WebMvcApp\_Code\WebDB\C17A0_LinsCare.sdf,SeCreateFile ]
+2013-07-18 18:33:25.997=>不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.WebMvcApp\_Code\WebDB\C17A0_LinsCare.sdf,SeCreateFile ]
+2013-07-18 18:33:37.916=>不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.WebMvcApp\_Code\WebDB\C17A0_LinsCare.sdf,SeCreateFile ]
+2013-07-18 18:33:46.170=>不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.WebMvcApp\_Code\WebDB\C17A0_LinsCare.sdf,SeCreateFile ]
+2013-07-18 18:34:01.343=>不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.WebMvcApp\_Code\WebDB\C17A0_LinsCare.sdf,SeCreateFile ]

@@ -1,0 +1,10 @@
+﻿2013-07-24 14:36:39.470=>不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.WebMvcApp\_Code\WebDB\C17A0_LinsCare.sdf,SeCreateFile ]
+2013-07-24 14:36:39.642=>[LogicError][I:0,::1,IE.10.0][a_Message.SearchMaster][M:<[不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.WebMvcApp\_Code\WebDB\C17A0_LinsCare.sdf,SeCreateFile ]][   於 System.Data.SqlServerCe.SqlCeConnection.Open(Boolean silent)
+   於 System.Data.SqlServerCe.SqlCeConnection.Open()
+   於 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter(SqlDataAdapter parmSqlAdp) 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1443
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter() 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1468
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter[m_Module]() 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1475
+   於 ProcCore.Business.Logic.a_Message.SearchMaster(q_Message qr, Int32 accountId) 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.BusinessLogic\BusinessLogic.cs: 行 4969]>]

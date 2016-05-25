@@ -1,0 +1,124 @@
+﻿@using ProcCore;
+@using ProcCore.Business.Logic.TablesDescription;
+@using ProcCore.JqueryHelp;
+@using ProcCore.JqueryHelp.JQGridScript;
+@using ProcCore.NetExtension;
+@using ProcCore.JqueryHelp.ElementAjaxScriptHelp;
+@{
+    _PowerUnit Tab = new _PowerUnit();
+}
+@section IncludeScript{
+    @Html.Partial("includeScript_Comm")}
+@Html.Partial("includeScript_Grid")
+@section menu{
+    @Html.Raw(Session["MenuHtmlString"].ToString())
+}
+@{
+    MVCFormHelper mFormHelper = new MVCFormHelper(this.ViewContext, CommWebSetup.eleNameMasterDataForm);
+
+    //以下為欄位規則設定
+    //mFormHelper.formValidate.Add(Html.FieldsRuleSetup(x => x.Title, new FieldRule { required = true }, null, null));
+    //mFormHelper.formValidate.Add(Html.FieldsRuleSetup(x => x.SetDate, new FieldRule { required = true, date = true }, null, null));
+
+    ElementAjaxScriptCreate j = new ElementAjaxScriptCreate();
+    j.ClassName = "PowerCheckBox";
+    j.CreateStyle = jqEventStyle.live;
+    j.Event = HtmlObjectEvent.change;
+    j.AjaxOptionScript.url = "ajax_GetUnitPowerList";
+    j.AjaxOptionScript.type = "POST";
+
+    j.AjaxOptionScript.data.Add("power", "$(this).attr('PowerID')");
+    j.AjaxOptionScript.data.Add("prog", "$(this).val()");
+    j.AjaxOptionScript.data.Add("unit", "$('#Unit').val()");
+    j.AjaxOptionScript.data.Add("Checked", "$(this).prop('checked')");
+
+    j.AjaxOptionScript.success.funcString += "";
+    //j.AjaxOptionScript.success.funcString += "$.UiMessage(data);";
+    //j.AjaxOptionScript.error.funcString += @"$('#dialog').html('Ajax can\'t work');$('#dialog').dialog('Ajax Error'); $('#dialog').dialog();";
+    
+    mFormHelper.LastAppenScript += ";" + j.ToScriptString();
+
+    j = null;
+    j = new ElementAjaxScriptCreate();
+
+    j.Id = "Unit";
+    j.CreateStyle = jqEventStyle.normal;
+    j.Event = HtmlObjectEvent.change;
+    j.AjaxOptionScript.url = "ajax_GetGridData";
+    j.AjaxOptionScript.type = "POST";
+
+    j.AjaxOptionScript.data.Add("Unit", "$(this).val()");
+
+    j.AjaxOptionScript.success.funcString += "var jsonobj = jQuery.parseJSON(data);";
+    j.AjaxOptionScript.success.funcString += "var GetGridMaster = jQuery('#" + CommWebSetup.MasterGridID + "')[0];";
+    j.AjaxOptionScript.success.funcString += "GetGridMaster.addJSONData(data);";
+
+    mFormHelper.LastAppenScript += ";" + j.ToScriptString(); 
+}
+<table class="tableForm">
+    <tr>
+        <td class="tdTableTitle">@ViewBag.Caption
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table style="width: 100%; background-color: #FFFFFF">
+                <tr>
+                    <td>
+                        單位：
+                    </td>
+                    <td>
+                        權限：
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top">
+                        @Html.DropDownList("Unit", (List<SelectListItem>)ViewBag.Unit_Option)
+                    </td>
+                    <td class="tdInputStyle">
+                        <div class="gridlist">
+                            @{
+                                jqGridObject JQGrid = new jqGridObject();
+                                JQGrid.GridID = CommWebSetup.MasterGridID;
+
+                                JQGrid.GridModule = new jqGridObject.gridModule();
+                                JQGrid.GridModule.caption = "單位權限管理";// ViewData["Caption"].ToString();
+                                JQGrid.GridModule.url = Url.Action("getGridData");
+
+                                JQGrid.GridModule.height = 640;
+                                JQGrid.GridModule.multiselect = false;
+
+                                JQGrid.GridModule.colNames = (String[])ViewData["array_ColNames"];
+                                JQGrid.GridModule.colModel = (jqGridObject.ColModel[])ViewData["array_ColModel"];
+                                                           
+                            }
+                            @Html.Raw(JQGrid.ToScriptString())
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+@{mFormHelper.FormEnd();}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+    });
+
+    (function ($) {
+        $.fn.formatter_MakeCheckBoxID = function (cellValue, ajaxOptions, rowObject) {
+            var getQuery = $.CollectQuery();
+            var cellHtml;
+            var cellJson = jQuery.parseJSON(cellValue);
+            if (cellJson.ShowPower) {
+                var IsChecked = cellJson.HavePower ? 'CHECKED' : '';
+                cellHtml = '<input class="PowerCheckBox" type="checkbox" value="' + ajaxOptions.rowId + '" PowerID="' + cellJson.PowerID + '" ' + IsChecked + '/>';
+            } else {
+                cellHtml = '';
+            }
+            return cellHtml;
+        }
+    })(jQuery);
+</script>

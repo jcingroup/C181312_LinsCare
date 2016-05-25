@@ -1,0 +1,121 @@
+﻿@model ProcCore.Business.Logic.m_NewsData
+@using ProcCore;
+@using ProcCore.WebCore;
+@using ProcCore.JqueryHelp;
+@using ProcCore.JqueryHelp.DateTimePickerHelp;
+@using ProcCore.JqueryHelp.FormvValidate;
+@using ProcCore.JqueryHelp.CustomButton;
+@section IncludeScript{
+    @Html.Partial("Manage/includeScript_Comm")
+    @Html.Partial("Manage/includeScript_FineUpload")
+}
+@section menu{
+    @Html.Raw(Session["MenuHtmlString"].ToString())
+}
+@{
+    FormValidateSetup val_frm_a = new FormValidateSetup(new jqSelector() { IdName = CommWebSetup.eleNameMasterDataForm });
+    val_frm_a.Add(Html.FieldsRuleSetup(x => x.Title, new FieldRule() { required = true }, null, null));
+    val_frm_a.Add(Html.FieldsRuleSetup(x => x.SetDate, new FieldRule() { required = true, date = true }, null, null));
+    
+    jqSelector jq_for_btn_rtn = new jqSelector() { IdName = "btn_return_list" };
+    jqSelector jq_for_btn_sbm = new jqSelector() { IdName = "btn_submit" };
+    jqSelector jq_for_btn_opfle_fmwk = new jqSelector() { IdName = "btn_opdlg_fles" };
+    jqSelector jq_for_btn_opimg_fmwk = new jqSelector() { IdName = "btn_opdlg_imgs" };
+
+    funcMethodModule func = Html.CommSetFormOnSuccesss();
+}
+@using (Ajax.BeginForm(null, null, new AjaxOptions() { Url = Url.Action(CommWebSetup.acNameMasterDataUpdateData), HttpMethod = "post", OnSuccess = func.funcName }, new { id = CommWebSetup.eleNameMasterDataForm }))
+{
+    @Html.HiddenFor(x => x.id, new { @id = "id" })
+    @Html.HiddenFor(x => x.EditType)
+    <input type="hidden" id="returnQueryString" name="returnQueryString" value="@Html.Raw(ViewBag.QueryString)" />
+    
+    <div class="@ViewBag.css_Edit_Master_CaptionCss">
+        @ViewBag.Caption
+    </div>
+    <div class="@ViewBag.css_EditFormNoteCss">
+        @Resources.Res.Info_StarMustEdit
+    </div>
+    <fieldset>
+        <legend class="@ViewBag.css_Edit_Subtitle_CaptionCss">@Html.Lang("BaseData")</legend>
+        <table>
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">@Html.LabelField("Test", Resources.Res.Info_FileUploader)</th>
+                <td>
+                    <button type="button" id="@jq_for_btn_opimg_fmwk.IdName">開啟圖片上傳</button>
+                    <button type="button" id="@jq_for_btn_opfle_fmwk.IdName">開啟檔案上傳</button>
+                </td>
+            </tr>
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.Title)</label></th>
+                <td>@Html.TextBoxFor(x => x.Title, new { @maxlength = 64, @size = 48 })</td>
+            </tr>
+
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.NewsKind)</label></th>
+                <td>@Html.DropDownListFor(x => x.NewsKind, (List<SelectListItem>)ViewBag.NewsKind_Option, new { @title = Html.TipLang(x => x.NewsKind) })</td>
+            </tr>
+
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.SetDate)</th>
+                <td>@Html.EditorFor(x => x.SetDate, "vuc_DateTime")</td>
+            </tr>
+
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.IsOpen)</th>
+                <td>@Html.RadioButtonFor(x => x.IsOpen, true)資訊開放 @Html.RadioButtonFor(x => x.IsOpen, false) 資訊關閉</td>
+            </tr>
+
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend class="@ViewBag.css_Edit_Subtitle_CaptionCss">@Html.Lang("ContextSetup")</legend>
+        @Html.TextAreaFor(x => x.Context, new { @style = "width:100%;height:120px" })
+    </fieldset>
+    <div class="@ViewBag.css_EditFormNavigationFunctionCss">
+        <button type="submit" id="@jq_for_btn_sbm.IdName">
+            @(Model.EditType == EditModeType.Insert ? Resources.Res.Button_Sure_Insert : Resources.Res.Button_Sure_Modify)
+        </button>
+        <button type="button" id="@jq_for_btn_rtn.IdName">@Resources.Res.Button_Return</button>
+    </div>
+}
+@Html.Partial("Manage/includeFiledownload_iFrame")
+
+@Html.ImageFineUpLoad("hd_ImageUp", Resources.Res.Info_Title_ImageUpload, jq_for_btn_opimg_fmwk.IdName, "ajax_UploadFine", "ajax_ListFiles", "ajax_DeleteFiles", Model.id, "DefaultKind", 320, 640)
+@Html.FileFineUpLoad("hd_FileUp", Resources.Res.Info_Title_FileUpload, jq_for_btn_opfle_fmwk.IdName, "ajax_UploadFine", "ajax_ListFiles", "ajax_DeleteFiles", Model.id, "DocFiles", 320, 640)
+
+@{
+    //===
+    jqButton btn_sbm_fmwk = new jqButton(new jqSelector() { IdName = jq_for_btn_sbm.IdName });
+    btn_sbm_fmwk.options.icons.primary = FrameworkIcons.ui_icon_check;
+    
+    //===
+    jqButton btn_rtn_fmwk = new jqButton(jq_for_btn_rtn);
+    btn_rtn_fmwk.options.icons.primary = FrameworkIcons.ui_icon_arrowreturnthick_1_w;
+
+    jqElementEvent btn_rtn_evt_clk = new jqElementEvent(jq_for_btn_rtn) ;
+    btn_rtn_evt_clk.events.Add(new jqElementEvent.jqEvents() { htmlElementEvent= HtmlObjectEvent.click,funcString="document.location.href='" + Url.Action(CommWebSetup.acNameEditFormReturnGridList) + "?' + $('#returnQueryString').val();" });
+    //===
+    jqButton btn_opfle_fmwk = new jqButton(new jqSelector() { IdName = jq_for_btn_opimg_fmwk.IdName });
+    btn_opfle_fmwk.options.icons.primary = FrameworkIcons.ui_icon_arrow_4_diag;
+    //===
+    jqButton btn_opimg_fmwk = new jqButton(new jqSelector() { IdName = jq_for_btn_opfle_fmwk.IdName });
+    btn_opimg_fmwk.options.icons.primary = FrameworkIcons.ui_icon_arrow_4_diag;
+        
+    }
+<script type="text/javascript">
+    $(document).ready(function () {
+        @Html.DateTimePickerPlugin(x => x.SetDate, new DateTimePicker() { showOtherMonths = true })
+        @Html.Raw(val_frm_a.ToScriptString())
+        @Html.Raw(btn_opfle_fmwk.ToScriptString())
+        @Html.Raw(btn_opimg_fmwk.ToScriptString())
+        @Html.Raw(btn_sbm_fmwk.ToScriptString())
+        @Html.Raw(btn_rtn_fmwk.ToScriptString())
+        @Html.Raw(btn_rtn_evt_clk.ToScriptString())
+        @Html.Raw(func.ToScriptString())
+    });
+    (function ($) {
+    })(jQuery);
+</script>

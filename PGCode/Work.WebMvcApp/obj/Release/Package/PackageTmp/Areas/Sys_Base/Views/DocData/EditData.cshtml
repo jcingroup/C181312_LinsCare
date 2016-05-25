@@ -1,0 +1,73 @@
+﻿@model ProcCore.Business.Logic.m_DocData
+@using ProcCore;
+@using ProcCore.WebCore;
+@using ProcCore.JqueryHelp;
+@using ProcCore.JqueryHelp.DateTimePickerHelp;
+@using ProcCore.JqueryHelp.FormvValidate;
+
+@section IncludeScript{
+    @Html.Partial("includeScript_Comm")
+    @Html.Partial("includeFiledownload_iFrame")
+}
+<link href="@(Url.Content("~"))_Code/jqScript/Fileuploader/fineuploader.css" rel="StyleSheet" type="text/css" />
+<link href="@(Url.Content("~"))_Code/JQScript/fancyBox/source/jquery.fancybox.css" rel="StyleSheet" type="text/css" />
+<script type="text/javascript" src="@Url.Content("~/_Code/ckeditor/ckeditor.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/_Code/ckfinder/ckfinder.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/_Code/JQScript/fancyBox/source/jquery.fancybox.pack.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/_Code/jqScript/Fileuploader/jquery.fineuploader-3.0.min.js")"></script>
+@section menu{
+    @Html.Raw(Session["MenuHtmlString"].ToString())
+}
+@{
+    MVCFormHelper mFormHelper = new MVCFormHelper(this.ViewContext, CommWebSetup.eleNameMasterDataForm);
+
+    //以下為欄位規則設定
+    mFormHelper.formValidate.Add(Html.FieldsRuleSetup(x => x.Title, new FieldRule { required = true }, null, null));
+
+    //mFormHelper.LastAppenScript += Html.SetCommCKEditor("Context");
+}
+
+@Html.HiddenFor(x => x.id, new { @id = "id" })
+@Html.HiddenFor(x => x.EditType)
+
+<div class="@ViewBag.css_Edit_Master_CaptionCss">
+    @ViewBag.Caption
+</div>
+<div class="@ViewBag.css_EditFormNoteCss">
+    *為必填欄位
+</div>
+<fieldset>
+    <legend class="@ViewBag.css_Edit_Subtitle_CaptionCss">@Html.Lang("BaseData")</legend>
+
+    <table>
+        <tr>
+            <th class="@ViewBag.css_EditFormFieldsNameCss">@Html.LabelField("Test",Resources.Res.Info_FileUploader)</th>
+            <td>@Html.FrameworkButton("btn_Click_OpenFileUpDialog", "　檔案上傳", FrameworkIcons.ui_icon_arrow_4_diag)</td>
+        </tr>
+        <tr>
+            <th class="@ViewBag.css_EditFormFieldsNameCss"><label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.Title)</label></th>
+            <td>@Html.TextBoxFor(x => x.Title, new { @maxlength = 64, @size = 48, @title = Html.TipLang(x => x.Title) })</td>
+        </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend class="@ViewBag.css_Edit_Subtitle_CaptionCss">@Html.Lang("ContextSetup")</legend>
+    @Html.TextAreaFor(x => x.Context, new { @style = "width:100%;height:120px" })
+</fieldset>
+<div class="@ViewBag.css_EditFormNavigationFunctionCss">
+    @Html.FrameworkButton("btn_submit", Model.EditType == EditModeType.Insert ? Resources.Res.Button_Sure_Insert : Resources.Res.Button_Sure_Modify, FrameworkIcons.ui_icon_check)
+    &nbsp;
+        @Html.FrameworkButton("btn_return_list", Resources.Res.Button_Return, FrameworkIcons.ui_icon_arrowreturnthick_1_w)
+    <input type="hidden" id="returnQueryString" name="returnQueryString" value="@Html.Raw(ViewBag.QueryString)" />
+</div>
+
+@{mFormHelper.FormEnd();}
+@Html.OpenDialogPlugin(ViewData["DialogTitle"].ToString(), ViewData["DialogMessage"].ToString())
+
+@Html.FileFineUpLoad("hd_FileUp", Resources.Res.Button_Open_FileUpload, "btn_Click_OpenFileUpDialog", "ajax_UploadFine", "ajax_ListFiles", "ajax_DeleteFiles", Model.id, "DocFiles", 320, 640)
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    });
+    (function ($) { })(jQuery);
+</script>

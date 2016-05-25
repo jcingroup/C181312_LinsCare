@@ -1,0 +1,86 @@
+﻿@model ProcCore.Business.Logic.q_ProgData
+@using ProcCore.JqueryHelp
+@using ProcCore.JqueryHelp.JQGridScript
+@using ProcCore.Business.Logic.TablesDescription;
+@{
+    ProgData Tab = new ProgData();
+}
+@section IncludeScript{
+    @Html.Partial("includeScript_Comm")
+    @Html.Partial("includeScript_Grid")
+}
+@section menu{
+    @Html.Raw(Session["MenuHtmlString"].ToString())
+}
+@using (Html.BeginForm(CommWebSetup.acNameMasterDataGridUrl,
+ViewContext.RouteData.Values["controller"].ToString(),
+FormMethod.Get, new { ID = CommWebSetup.eleNameSearchForm }))
+{
+    @Html.HiddenFor(x => x.page);
+
+    <div id="gridform">
+        <table>
+            <tr>
+                <th>
+                    @Html.LabelFor(x => x.s_prog_name, Html.Lang(x => x.s_prog_name))： </th>
+                <td>@Html.TextBoxFor(x => x.s_prog_name)
+                </td>
+                <th>@Html.LabelFor(x => x.s_area, Html.Lang(x => x.s_area))：
+                </th>
+                <td>@Html.TextBoxFor(x => x.s_area)
+                </td>
+                <th>@Html.LabelFor(x => x.s_controller, Html.Lang(x => x.s_controller))：
+                </th>
+                <td>@Html.TextBoxFor(x => x.s_controller)
+                </td>
+                <td>@Html.FrameworkButton(CommWebSetup.eleNameSearchButton, Resources.Res.Search, FrameworkIcons.ui_icon_search)
+                </td>
+            </tr>
+        </table>
+        <div class="gridlist">
+            @{
+                                //定義Grid需格式化的欄位，以下為ID欄位轉換成Framework ICON並可點選，設定完成代至下到的Html.JQGridHelp中的HelpColumnModule要格式化的欄位並指定給formatterColumn屬性
+                                FormatterColumnScript f_col_id = new FormatterColumnScript();
+                                f_col_id.FunctionName = CommWebSetup.funNameMasterDataFormatterID;
+                                f_col_id.FunctionString = Html.GridIDColumnCommScriptContext(CommWebSetup.MasterGridID, Url.Action(CommWebSetup.acNameEditMasterDataByID));
+
+                                jqGrid jdSub = Html.jqSubGrid(
+                                Url.Action("ajax_MasterSubGridData"),
+                                Url.Action(CommWebSetup.acNameSubDataDelete),
+                                Url.Action(CommWebSetup.acNameSubDataUpdateData),null,null,
+                                new MakeColumnModule() { CN = Resources.Res.ColModify, CM = { name = "modify", key = true, width = "30px", AssignFormatter = f_col_id } },
+                                new MakeColumnModule() { CN = Html.FLang(Tab.prog_name.N), CM = { name = Tab.prog_name.N, width = "180px" } },
+                                new MakeColumnModule() { CN = Html.FLang(Tab.area.N), CM = { name = Tab.area.N, width = "120px" } },
+                                new MakeColumnModule() { CN = Html.FLang(Tab.controller.N), CM = { name = Tab.controller.N, width = "120px" } },
+                                new MakeColumnModule() { CN = Html.FLang(Tab.sort.N), CM = { name = Tab.sort.N, width = "90px" } });
+
+                                jdSub.GridModule.postData.Add("id", "id");
+                                jdSub.ToScriptHandle();
+                               
+            }
+            @Html.mhs_jqGrid_Standard(
+CommWebSetup.MasterGridID,
+ViewData["Caption"].ToString(),
+ViewData["Page"].ToString(),
+ViewData["AppendQuertString"].ToString(),
+Url.Action(CommWebSetup.acNameMasterDataGridUrl),
+Url.Action(CommWebSetup.acNameMasterDataDelete),
+Url.Action(CommWebSetup.acNameEditMasterDataAddNew),
+CommWebSetup.MasterGridDefHight, jdSub,
+new MakeColumnModule() { CN = Resources.Res.ColModify, CM = { name = "modify", key = true, width = "30px", AssignFormatter = f_col_id } },
+new MakeColumnModule() { CN = Html.FLang(Tab.prog_name.N), CM = { name = Tab.prog_name.N, width = "180px" } },
+new MakeColumnModule() { CN = Html.FLang(Tab.area.N), CM = { name = Tab.area.N, width = "120px" } },
+new MakeColumnModule() { CN = Html.FLang(Tab.controller.N), CM = { name = Tab.controller.N, width = "120px" } },
+new MakeColumnModule() { CN = Html.FLang(Tab.sort.N), CM = { name = Tab.sort.N, width = "90px" } },
+new MakeColumnModule() { CN = Html.FLang(Tab.isfolder.N), CM = { name = Tab.isfolder.N, width = "90px" } })
+        </div>
+    </div>
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#jqMasterGird").setGridParam({ rowNum: -1 }); //設定Grid資料全部列出不做分頁
+    });
+
+    (function ($) {
+    })(jQuery);
+</script>

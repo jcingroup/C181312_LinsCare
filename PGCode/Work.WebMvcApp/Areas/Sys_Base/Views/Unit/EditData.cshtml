@@ -1,0 +1,82 @@
+﻿@model ProcCore.Business.Logic.m_Unit
+@using ProcCore;
+@using ProcCore.WebCore;
+@using ProcCore.JqueryHelp;
+@using ProcCore.JqueryHelp.DateTimePickerHelp;
+@using ProcCore.JqueryHelp.FormvValidate;
+@using ProcCore.JqueryHelp.CustomButton;
+
+@section IncludeScript{
+    @Html.Partial("includeScript_Comm")}
+@section menu{
+    @Html.Raw(Session["MenuHtmlString"].ToString())
+}
+@{
+    FormValidateSetup val_frm_a = new FormValidateSetup(new jqSelector() { IdName = CommWebSetup.eleNameMasterDataForm });
+    val_frm_a.Add(Html.FieldsRuleSetup(x => x.name, new FieldRule() { required = true }, null, null));
+    val_frm_a.Add(Html.FieldsRuleSetup(x => x.sort, new FieldRule() { required = true, digits = true }, null, null));
+
+    jqSelector jq_for_btn_rtn = new jqSelector() { IdName = "btn_return_list" };
+    jqSelector jq_for_btn_sbm = new jqSelector() { IdName = "btn_submit" };
+
+    funcMethodModule func = Html.CommSetFormOnSuccesss();
+}
+
+@using (Ajax.BeginForm(null, null, new AjaxOptions() { Url = Url.Action(CommWebSetup.acNameMasterDataUpdateData), HttpMethod = "post", OnSuccess = func.funcName }, new { id = CommWebSetup.eleNameMasterDataForm }))
+{
+    @Html.HiddenFor(x => x.id)
+    @Html.HiddenFor(x => x.EditType)
+    <div class="@ViewBag.css_Edit_Master_CaptionCss">
+        @ViewBag.Caption
+    </div>
+    <div class="@ViewBag.css_EditFormNoteCss">
+        @Resources.Res.Info_StarMustEdit
+    </div>
+    <fieldset>
+        <legend class="@ViewBag.css_Edit_Subtitle_CaptionCss">@Html.Lang("BaseData")</legend>
+
+                <table>
+            <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.name)</label></th>
+                <td>@Html.TextBoxFor(x => x.name, new { @maxlength = 24, @size = 24 })</td>
+            </tr>
+                                <tr>
+                <th class="@ViewBag.css_EditFormFieldsNameCss">
+                    <label class="@ViewBag.css_EditFormFieldsNameCss">@Html.FieldLang(x => x.sort)</label></th>
+                <td>@Html.TextBoxFor(x => x.sort, new { @maxlength = 3, @size = 3 })</td>
+            </tr>
+                    </table>
+    </fieldset>
+    <div class="@ViewBag.css_EditFormNavigationFunctionCss">
+        <button type="submit" id="@jq_for_btn_sbm.IdName">
+            @(Model.EditType == EditModeType.Insert ? Resources.Res.Button_Sure_Insert : Resources.Res.Button_Sure_Modify)
+        </button>
+        <button type="button" id="@jq_for_btn_rtn.IdName">@Resources.Res.Button_Return</button>
+    </div>
+}
+@{
+    //===
+    jqButton btn_sbm_fmwk = new jqButton(new jqSelector() { IdName = jq_for_btn_sbm.IdName });
+    btn_sbm_fmwk.options.icons.primary = FrameworkIcons.ui_icon_check;
+
+    //===
+    jqButton btn_rtn_fmwk = new jqButton(jq_for_btn_rtn);
+    btn_rtn_fmwk.options.icons.primary = FrameworkIcons.ui_icon_arrowreturnthick_1_w;
+
+    jqElementEvent btn_rtn_evt_clk = new jqElementEvent(jq_for_btn_rtn);
+    btn_rtn_evt_clk.events.Add(new jqElementEvent.jqEvents() { htmlElementEvent = HtmlObjectEvent.click, funcString = "document.location.href='" + Url.Action(CommWebSetup.acNameEditFormReturnGridList) + "?' + $('#returnQueryString').val();" });
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        @Html.Raw(val_frm_a.ToScriptString())
+        @Html.Raw(btn_sbm_fmwk.ToScriptString())
+        @Html.Raw(btn_rtn_fmwk.ToScriptString())
+        @Html.Raw(btn_rtn_evt_clk.ToScriptString())
+        @Html.Raw(func.ToScriptString())
+    });
+
+    (function ($) {
+    })(jQuery);
+</script>

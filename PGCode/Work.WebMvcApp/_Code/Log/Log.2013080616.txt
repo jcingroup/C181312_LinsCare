@@ -1,0 +1,38 @@
+﻿2013-08-06 16:36:19.852=>不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.WebMvcApp\_Code\WebDB\C17A0_LinsCare.sdf,SeCreateFile ]
+2013-08-06 16:36:20.033=>[LogicError][I:0,::1,IE.10.0][a_Message.SearchMaster][M:<[不允許存取資料庫檔案。 [ 1914,File name = D:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.WebMvcApp\_Code\WebDB\C17A0_LinsCare.sdf,SeCreateFile ]][   於 System.Data.SqlServerCe.SqlCeConnection.Open(Boolean silent)
+   於 System.Data.SqlServerCe.SqlCeConnection.Open()
+   於 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter(SqlDataAdapter parmSqlAdp) 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1443
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter() 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1468
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter[m_Module]() 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1475
+   於 ProcCore.Business.Logic.a_Message.SearchMaster(q_Message qr, Int32 accountId) 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.BusinessLogic\BusinessLogic.cs: 行 4969]>]
+2013-08-06 16:39:35.052=>[Info][I:0,::1,IE.10.0][a_Users.SystemLogin][M:登入檢查完成。]
+2013-08-06 16:39:36.748=>ajax_Login Login OK!：1
+2013-08-06 16:39:36.992=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:39:37.047=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:39:40.723=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:42:17.906=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:42:26.807=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:45:44.960=>[Info][I:0,::1,IE.10.0][a_Users.SystemLogin][M:登入檢查完成。]
+2013-08-06 16:45:45.938=>ajax_Login Login OK!：1
+2013-08-06 16:45:46.207=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:45:46.272=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:45:48.680=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:45:50.963=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:46:00.422=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:50:28.484=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:52:51.198=>[Info][I:0,::1,IE.10.0][a_Users.SystemLogin][M:登入檢查完成。]
+2013-08-06 16:52:52.110=>ajax_Login Login OK!：1
+2013-08-06 16:52:52.363=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:52:52.438=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:52:54.736=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:52:57.498=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:55:27.683=>[Info][I:0,::1,IE.10.0][a_Users.SystemLogin][M:登入檢查完成。]
+2013-08-06 16:55:28.596=>ajax_Login Login OK!：1
+2013-08-06 16:55:28.846=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:55:28.902=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:55:31.225=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:55:36.112=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-08-06 16:55:46.232=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]

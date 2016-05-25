@@ -1,0 +1,27 @@
+﻿@model ProcCore.Business.Logic.q_DocData
+@using ProcCore.Business.Logic.TablesDescription
+@using ProcCore.JqueryHelp
+@using ProcCore.JqueryHelp.JQGridScript
+
+@{
+    DocData Tab = new DocData();
+}
+@section IncludeScript{
+    @Html.Partial("Manage/includeScript_Comm")
+    @Html.Partial("Manage/includeScript_Grid")
+}
+
+@section menu{
+    @Html.Raw(Session["MenuHtmlString"].ToString())
+}
+
+ <ul style="width:80%; margin:0 auto;">
+ <li style="margin:20px 0;"><a class="ui-state-default ui-corner-all" href="~/Manual/add" target="new" style="display:block; padding:8px 15px;">最新消息-新增</a></li>
+ <li style="margin:20px 0;"><a class="ui-state-default ui-corner-all" href="~/Manual/edit" target="new" style="display:block; padding:8px 15px;">最新消息-修改</a></li>
+ <li style="margin:20px 0;"><a class="ui-state-default ui-corner-all" href="~/Manual/del" target="new" style="display:block; padding:8px 15px;">最新消息-刪除</a></li>
+</ul>
+
+<script type="text/javascript">
+    $(document).ready(function () { });
+    (function ($) { })(jQuery);
+</script>

@@ -1,0 +1,24 @@
+@import "base/reset.css";
+@import "base/basic.css";
+
+@charset "utf-8";
+
+body {
+	background:#fff;
+	text-align:left;
+	padding:0 10px;
+	}
+em {
+ font-style:italic;
+ }
+ol {
+ list-style:decimal inside;
+ }
+ul, ol {
+    margin:0 20px 15px 0;
+    }
+li {
+    padding:3px 0 3px 10px;
+    background:url('../images/arrow.gif') no-repeat 0 11px;
+    }
+img { max-width:100%; }

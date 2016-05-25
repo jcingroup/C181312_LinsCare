@@ -1,0 +1,117 @@
+﻿@model ProcCore.Business.Logic.q__CodeHead
+@using ProcCore.Business.Logic.TablesDescription
+@using ProcCore.JqueryHelp
+@using ProcCore.JqueryHelp.JQGridScript
+
+@{
+    _CodeHead Tab = new _CodeHead();
+    _CodeSheet Tabd = new _CodeSheet();
+}
+@section IncludeScript{
+    @Html.Partial("includeScript_Comm")
+    @Html.Partial("includeScript_Grid")
+}
+
+@section menu{
+    @Html.Raw(Session["MenuHtmlString"].ToString())
+}
+
+@using (Html.BeginForm(CommWebSetup.acNameMasterDataGridUrl,
+ViewContext.RouteData.Values["controller"].ToString(),
+FormMethod.Get, new { ID = CommWebSetup.eleNameSearchForm }))
+{
+    <fieldset>
+        <legend class="@ViewBag.css_Edit_Subtitle_CaptionCss">Search</legend>
+        @Html.HiddenFor(x => x.page)
+        @Html.LabelFor(x => x.s_name, Html.Lang(x => x.s_name))：@Html.TextBoxFor(x => x.s_name)
+        @Html.FrameworkButton(CommWebSetup.eleNameSearchButton, Resources.Res.Search, FrameworkIcons.ui_icon_search)
+    </fieldset>
+}
+
+@{
+    //定義Grid需格式化的欄位，以下為ID欄位轉換成Framework ICON並可點選，設定完成代至下到的Html.JQGridHelp中的HelpColumnModule要格式化的欄位並指定給formatterColumn屬性
+    FormatterColumnScript f_col_id = new FormatterColumnScript();
+    f_col_id.FunctionName = CommWebSetup.funNameMasterDataFormatterID;
+    f_col_id.FunctionString = Html.GridIDColumnCommScriptContext(CommWebSetup.MasterGridID, Url.Action(CommWebSetup.acNameEditMasterDataByID));
+
+    jqGrid gridsub = Html.jqSubGrid(
+    Url.Action(CommWebSetup.acNameMasterSubGridData),
+    Url.Action(CommWebSetup.acNameSubDataDelete),
+    Url.Action(CommWebSetup.acNameSubDataUpdateData), 120, null,
+    new MakeColumnModule() { CN = Tabd.id.N, CM = { name = "id", key = true, width = "30px", editable = true, hidden = true } },
+    new MakeColumnModule() { CN = Html.FLang(Tabd.Code.N), CM = { name = Tabd.Code.N, width = "90px",hidden=true ,editable = true, formoptions = new jqGrid.colObject.formOptions() { label = "自訂代碼" },editrules=new jqGrid.colObject.editRules(){ required=true} } },
+    new MakeColumnModule() { CN = Html.FLang(Tabd.Value.N), CM = { name = Tabd.Value.N, width = "120px", editable = true,editrules=new jqGrid.colObject.editRules(){ required=true} } },
+    new MakeColumnModule() { CN = Html.FLang(Tabd.Memo.N), CM = { name = Tabd.Memo.N, width = "280px", editable = true,hidden=true } },
+    new MakeColumnModule() { CN = Html.FLang(Tabd.Sort.N), CM = { name = Tabd.Sort.N, width = "30px", editable = true, editrules = new jqGrid.colObject.editRules() { integer = true, required=true } } },
+    new MakeColumnModule() { CN = Html.FLang(Tabd.IsUse.N), CM = { name = Tabd.IsUse.N, width = "90px", editable = true, edittype = "checkbox", editoptions = new jqGrid.colObject.editOptions() { defaultValue = "true" } } },
+    new MakeColumnModule() { CN = Tabd.CodeHeadId.N, CM = { name = Tabd.CodeHeadId.N, width = "0px", editable = true,hidden=true } }
+    );
+
+    gridsub.GridModule.postData.Add("s_CodeHeadId", "id");
+    gridsub.ToScriptHandle();
+    gridsub.NavGridModule.navOption.add = true;
+    gridsub.NavGridModule.navOption.addtext = Resources.Res.Button_Insert;
+
+    gridsub.NavGridModule.navOption.edit = true;
+    gridsub.NavGridModule.navOption.edittext = Resources.Res.Button_Modify;
+
+    gridsub.NavGridModule.Add.afterShowForm = new funcMethodModule();
+    gridsub.NavGridModule.Add.afterShowForm.funcString = "$.ajax_DetailFormShowAfterHandle(id);";
+    gridsub.NavGridModule.Add.afterShowForm.MakeStyle = funcMethodModule.funcMakeStyle.funcConext;
+
+    //===================================================================================================    
+    var gridObj = Html.jqGrid_Edit(
+CommWebSetup.MasterGridID,
+(String)ViewBag.Caption,
+ViewData["Page"].ToString(),
+Url.Action(CommWebSetup.acNameMasterDataGridUrl),
+Url.Action(CommWebSetup.acNameMasterDataDelete),
+Url.Action(CommWebSetup.acNameMasterDataUpdateData),
+CommWebSetup.MasterGridDefHight, gridsub,
+new MakeColumnModule() { CN = Html.FLang(Tab.id.N), CM = { name = Tab.id.N, width = "30px", align = "center",editable=true,hidden=true } },
+new MakeColumnModule() { CN = Html.FLang(Tab.name.N), CM = { name = Tab.name.N, width = "120px", editable = true } },
+new MakeColumnModule() { CN = Html.FLang(Tab.Memo.N), CM = { name = Tab.Memo.N, width = "280px", editable = true } },
+new MakeColumnModule() { CN = Html.FLang(Tab.IsEdit.N), CM = { name = Tab.IsEdit.N, width = "30px",hidden=true, editable = true, edittype="checkbox", editoptions=new jqGrid.colObject.editOptions(){ value="true:false" } } }
+
+);
+    //設定主Grid的功能Button區
+    gridObj.GridModule.postData = new DataModule();
+    gridObj.GridModule.postData.Add("s_IsEdit", "true");
+    gridObj.GridModule.multiboxonly = false;
+    gridObj.GridModule.multiselect = false;
+
+    gridObj.NavGridModule.navOption.add = false;
+    gridObj.NavGridModule.navOption.edit = false;
+    gridObj.NavGridModule.navOption.del = false;
+
+    gridObj.NavGridModule.Add.afterShowForm = new funcMethodModule();
+    gridObj.NavGridModule.Add.afterShowForm.funcString = "$.ajax_DetailFormShowAfterHandle();";
+    gridObj.NavGridModule.Add.afterShowForm.MakeStyle = funcMethodModule.funcMakeStyle.funcConext;
+    
+}
+
+@Html.Raw(gridObj.ToScriptString())
+@Html.AjaxFormSearch(CommWebSetup.eleNameSearchForm, CommWebSetup.MasterGridID, CommWebSetup.eleNameSearchButton, true)
+@Html.OpenDialogPlugin(ViewData["DialogTitle"].ToString(), ViewData["DialogMessage"].ToString())
+<script type="text/javascript">
+    $(document).ready(function () { });
+    (function ($) {
+
+        $.ajax_MasterFormShowAfterHandle = function () {
+            $.EventAjaxHandle({}, 'ajax_GetAddNewID').done(function (data, textStatus, jqXHR) {
+                var jsonobj = jQuery.parseJSON(data);
+                $('#id').val(jsonobj);
+            })
+        }
+
+        $.ajax_DetailFormShowAfterHandle = function (id) {
+            $('#CodeHeadId').val(id);
+            $.EventAjaxHandle({}, 'ajax_GetAddNewID').done(function (data, textStatus, jqXHR) {
+                var jsonobj = jQuery.parseJSON(data);
+                $('#id').val(jsonobj);
+                $('#Code').val(jsonobj)
+            })
+        }
+
+    })(jQuery);
+</script>

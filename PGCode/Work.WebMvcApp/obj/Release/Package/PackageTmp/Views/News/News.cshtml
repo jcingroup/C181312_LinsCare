@@ -1,0 +1,29 @@
+﻿@model ProcCore.Business.Logic.m_Message
+@{
+    ViewBag.Title = "最新消息";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div id="content">
+
+    <h3>最新消息<span>News</span></h3>
+
+    <h4><span><em>@Model.set_date.ToString("yyyy.MM.dd")</em>@Model.title</span></h4>
+
+    <div id="news_content">
+        <!-- 編輯器開始 -->
+        @Html.Raw(Model.context)
+        <!-- 編輯器結束 -->
+        @{
+            String[] ImageFiles = Html.ImagesAppendInfo("Sys_Active", "Message", Model.id, "DefaultKind");
+        }
+        @foreach (String ImageFile in ImageFiles)
+        { 
+            <img src="@ImageFile" />
+        }
+    </div>
+    <!-- news_content //-->
+    <a class="btn floatR" href="~/News/News_list">回列表</a>
+</div>
+<!-- content //-->
+

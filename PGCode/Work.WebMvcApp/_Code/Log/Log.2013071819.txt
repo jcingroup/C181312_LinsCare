@@ -1,0 +1,69 @@
+﻿2013-07-18 19:14:19.684=>[Info][I:0,::1,IE.10.0][a_Users.SystemLogin][M:登入檢查完成。]
+2013-07-18 19:14:21.202=>ajax_Login Login OK!：1
+2013-07-18 19:14:21.415=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:14:21.489=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:14:25.332=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:14:25.529=>[LogicError][I:1,::1,IE.10.0][a_Message.SearchMaster][M:<[資料行名稱無效。 [ Node name (if any) = ,Column name = 分類 ]][   於 System.Data.SqlServerCe.SqlCeCommand.ProcessResults(Int32 hr)
+   於 System.Data.SqlServerCe.SqlCeCommand.CompileQueryPlan()
+   於 System.Data.SqlServerCe.SqlCeCommand.ExecuteCommand(CommandBehavior behavior, String method, ResultSetOptions options)
+   於 System.Data.SqlServerCe.SqlCeCommand.ExecuteReader(CommandBehavior behavior)
+   於 System.Data.SqlServerCe.SqlCeCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   於 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter(SqlDataAdapter parmSqlAdp) 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1443
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter() 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1468
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter[m_Module]() 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1475
+   於 ProcCore.Business.Logic.a_Message.SearchMaster(q_Message qr, Int32 accountId) 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.BusinessLogic\BusinessLogic.cs: 行 4969]>]
+2013-07-18 19:17:01.289=>[Info][I:0,::1,IE.10.0][a_Users.SystemLogin][M:登入檢查完成。]
+2013-07-18 19:17:02.549=>ajax_Login Login OK!：1
+2013-07-18 19:17:02.763=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:17:02.818=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:17:06.522=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:17:06.734=>[LogicError][I:1,::1,IE.10.0][a_Message.SearchMaster][M:<[資料行名稱無效。 [ Node name (if any) = ,Column name = 分類 ]][   於 System.Data.SqlServerCe.SqlCeCommand.ProcessResults(Int32 hr)
+   於 System.Data.SqlServerCe.SqlCeCommand.CompileQueryPlan()
+   於 System.Data.SqlServerCe.SqlCeCommand.ExecuteCommand(CommandBehavior behavior, String method, ResultSetOptions options)
+   於 System.Data.SqlServerCe.SqlCeCommand.ExecuteReader(CommandBehavior behavior)
+   於 System.Data.SqlServerCe.SqlCeCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   於 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   於 System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter(SqlDataAdapter parmSqlAdp) 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1443
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter() 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1468
+   於 ProcCore.DatabaseCore.SQLContextHelp.TablePack`1.DataByAdapter[m_Module]() 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCore\Core.DataBaseHelper\SQLContextHelp.cs: 行 1475
+   於 ProcCore.Business.Logic.a_Message.SearchMaster(q_Message qr, Int32 accountId) 於 d:\300.TeamProjectWork\020_JcinRoom\C18612_好健康國際網站\PGCode\Work.BusinessLogic\BusinessLogic.cs: 行 4969]>]
+2013-07-18 19:19:50.992=>[Info][I:0,::1,IE.10.0][a_Users.SystemLogin][M:登入檢查完成。]
+2013-07-18 19:19:52.263=>ajax_Login Login OK!：1
+2013-07-18 19:19:52.537=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:19:52.614=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:19:56.110=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:21:10.977=>[Info][I:0,::1,IE.10.0][a_Users.SystemLogin][M:登入檢查完成。]
+2013-07-18 19:21:11.859=>ajax_Login Login OK!：1
+2013-07-18 19:21:12.106=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:21:12.162=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:21:14.460=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:21:20.417=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:23:29.492=>[Info][I:0,::1,IE.10.0][a_Users.SystemLogin][M:登入檢查完成。]
+2013-07-18 19:23:30.681=>ajax_Login Login OK!：1
+2013-07-18 19:23:30.931=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:23:30.988=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:23:34.087=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:23:36.958=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:24:05.564=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:24:05.777=>[Info][I:1,::1,IE.10.0][a_Message.InsertMaster][M:OK]
+2013-07-18 19:24:08.068=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:24:08.741=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:24:10.286=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:24:18.892=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:24:19.071=>[Info][I:1,::1,IE.10.0][a_Message.InsertMaster][M:OK]
+2013-07-18 19:24:23.755=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:24:23.776=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:24:24.518=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:24:32.934=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:24:35.131=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:24:49.681=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:24:49.877=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:24:50.196=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]
+2013-07-18 19:24:50.409=>[Info][I:0,::1,IE.10.0][zh-TW.Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0; NP06)][M:]

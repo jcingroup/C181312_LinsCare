@@ -1,0 +1,28 @@
+﻿@model ProcCore.Business.Logic.m_Message[]
+@{
+    ViewBag.Title = "最新消息";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div id="content">
+
+    <h3>最新消息<span>News</span></h3>
+
+    <ul>
+        @foreach (var md in Model)
+        {
+            <li><strong>@md.set_date.ToString("yyyy.MM.dd")</strong>@md.title<a class="btn" href="../News/News/@md.id">...more</a></li>
+        }
+        <!--
+        <li><strong>2013.7.18</strong>好健康國際有限公司-官方網站正式營運！<a class="btn" href="../News/News">...more</a></li>
+        <li><strong>2013.7.18</strong>好健康國際有限公司-官方網站正式營運！<a class="btn" href="../News/News">...more</a></li>
+        <li><strong>2013.7.18</strong>好健康國際有限公司-官方網站正式營運！<a class="btn" href="../News/News">...more</a></li>
+        <li><strong>2013.7.18</strong>好健康國際有限公司-官方網站正式營運！<a class="btn" href="../News/News">...more</a></li>
+    -->
+    </ul>
+
+    <!--a class="btn floatR" href="#content">回頂端</a-->
+
+</div>
+<!-- content //-->
+

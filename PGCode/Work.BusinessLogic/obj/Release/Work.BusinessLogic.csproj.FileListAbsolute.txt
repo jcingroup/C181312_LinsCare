@@ -1,0 +1,16 @@
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Release\Proc.BusinessLogic.dll
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Release\Proc.BusinessLogic.pdb
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Release\Proc.DatabaseCore.dll
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Release\Proc.DotNetExtension.dll
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Release\Proc.ExceptionDefine.dll
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Release\Proc.LogWriteHelper.dll
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Release\Proc.ProjectHelper.dll
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Release\MySql.Data.dll
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Release\Proc.DatabaseCore.pdb
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Release\Proc.DotNetExtension.pdb
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Release\Proc.ExceptionDefine.pdb
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Release\Proc.LogWriteHelper.pdb
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\bin\Release\Proc.ProjectHelper.pdb
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\obj\Release\Work.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\obj\Release\Proc.BusinessLogic.dll
+D:\VS2\C181312_LinsCare\PGCode\Work.BusinessLogic\obj\Release\Proc.BusinessLogic.pdb

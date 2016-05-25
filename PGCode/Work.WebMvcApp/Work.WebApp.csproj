@@ -1,0 +1,1395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{15DF1E9F-D17F-4692-8B96-FBA63E810370}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DotWeb.WebApp</RootNamespace>
+    <AssemblyName>Proc.MvcWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CKFinder">
+      <HintPath>_Code\ckfinder_aspnet_2.3.1\bin\Debug\CKFinder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Proc.DatabaseCore, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Proc.DatabaseCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Proc.DotNetExtension, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Proc.DotNetExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="Proc.ExceptionDefine, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Proc.ExceptionDefine.dll</HintPath>
+    </Reference>
+    <Reference Include="Proc.LogWriteHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Proc.LogWriteHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Proc.ProjectHelper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Proc.ProjectHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\Res.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\ResWeb.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResWeb.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Areas\Sys_Active\Controllers\MessageController.cs" />
+    <Compile Include="Areas\Sys_Active\Sys_ActiveAreaRegistration.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\CodeController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\DocDataController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\PowerUnitController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\PowerUsersController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\ProgController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\SystemLoginController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\UnitController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\XYZController.cs" />
+    <Compile Include="Areas\Sys_Base\Controllers\ParmController.cs" />
+    <Compile Include="Areas\Sys_Base\Sys_BaseAreaRegistration.cs" />
+    <Compile Include="Areas\Sys_Example\Controllers\NewsDataController.cs" />
+    <Compile Include="Areas\Sys_Example\Sys_ExampleAreaRegistration.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\ManualController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\StoryController.cs" />
+    <Compile Include="Controllers\_SysAdmController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_Code\Ashx\AjaxDownLoadFile.ashx.cs">
+      <DependentUpon>AjaxDownLoadFile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="_Code\Ashx\AjaxGetCounty.ashx.cs">
+      <DependentUpon>AjaxGetCounty.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="_Code\Ashx\AjaxGetZip.ashx.cs">
+      <DependentUpon>AjaxGetZip.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="_Code\Ashx\BaseIHttpHandler.cs" />
+    <Compile Include="_Code\Ashx\ValidateCode.ashx.cs">
+      <DependentUpon>ValidateCode.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="_Code\Ashx\ValidateCode_AddMember.ashx.cs">
+      <DependentUpon>ValidateCode_AddMember.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="_Code\Ashx\ValidateCode_Forgot.ashx.cs">
+      <DependentUpon>ValidateCode_Forgot.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="_Code\Ashx\ValidateCode_Order.ashx.cs">
+      <DependentUpon>ValidateCode_Order.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="_Code\CommClass\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_Code\CommClass\BaseWebController.cs" />
+    <Compile Include="_Code\CommClass\CommWebSetup.cs" />
+    <Compile Include="_Code\CommClass\HtmlHelpers.cs" />
+    <Compile Include="_Code\CommClass\Pager\IPagedList.cs" />
+    <Compile Include="_Code\CommClass\Pager\PagedList.cs" />
+    <Compile Include="_Code\CommClass\Pager\Pager.cs" />
+    <Compile Include="_Code\CommClass\Pager\PagingExtensions.cs" />
+    <Compile Include="_Code\CommClass\RptPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="App_GlobalResources\ResWeb.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ResWeb.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="Content\css\base\basic.css" />
+    <Content Include="Content\css\base\layout.css" />
+    <Content Include="Content\css\base\reset.css" />
+    <Content Include="Content\css\editor.css" />
+    <Content Include="Content\css\page.css" />
+    <Content Include="Content\images\arrow.gif" />
+    <Content Include="Content\images\banner1.jpg" />
+    <Content Include="Content\images\banner2.jpg" />
+    <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\bg2.jpg" />
+    <Content Include="Content\images\dot.gif" />
+    <Content Include="Content\images\footer.jpg" />
+    <Content Include="Content\images\links\linscare.jpg" />
+    <Content Include="Content\images\links\orahoney.jpg" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\Manual\del.swf" />
+    <Content Include="Content\images\Manual\edit.swf" />
+    <Content Include="Content\images\Manual\new.swf" />
+    <Content Include="Content\images\products\c1_1.jpg" />
+    <Content Include="Content\images\products\c1_1_b.jpg" />
+    <Content Include="Content\images\products\c1_2.jpg" />
+    <Content Include="Content\images\products\c1_2_b.jpg" />
+    <Content Include="Content\images\products\c2_1.jpg" />
+    <Content Include="Content\images\products\c2_1_b.jpg" />
+    <Content Include="Content\images\products\c2_2.jpg" />
+    <Content Include="Content\images\products\c2_2_b.jpg" />
+    <Content Include="Content\images\products\c2_3.jpg" />
+    <Content Include="Content\images\products\c2_3_b.jpg" />
+    <Content Include="Content\images\products\c3_1.jpg" />
+    <Content Include="Content\images\products\c3_1_b.jpg" />
+    <Content Include="Content\images\products\c3_2.jpg" />
+    <Content Include="Content\images\products\c3_2_b.jpg" />
+    <Content Include="Content\images\products\c3_3.jpg" />
+    <Content Include="Content\images\products\c3_3_b.jpg" />
+    <Content Include="Content\images\products\c4_1.jpg" />
+    <Content Include="Content\images\products\c4_1_b.jpg" />
+    <Content Include="Content\images\products\c5_1.jpg" />
+    <Content Include="Content\images\products\c5_1_b.jpg" />
+    <Content Include="Content\images\products\c5_2.jpg" />
+    <Content Include="Content\images\products\c5_2_b.jpg" />
+    <Content Include="Content\images\products\c5_3.jpg" />
+    <Content Include="Content\images\products\c5_3_b.jpg" />
+    <Content Include="Content\images\products\c5_4.jpg" />
+    <Content Include="Content\images\products\c5_4_b.jpg" />
+    <Content Include="Content\images\products\c5_5.jpg" />
+    <Content Include="Content\images\products\c5_5_b.jpg" />
+    <Content Include="Content\images\products\c5_7.jpg" />
+    <Content Include="Content\images\products\c5_7_b.jpg" />
+    <Content Include="Content\images\products\c5_8.jpg" />
+    <Content Include="Content\images\products\c5_8_b.jpg" />
+    <Content Include="Content\images\products\manuka.jpg" />
+    <Content Include="Content\images\products\manuka_b.jpg" />
+    <Content Include="Content\images\products\noPic.jpg" />
+    <Content Include="Content\images\products\pic1.jpg" />
+    <Content Include="Content\images\products\sgs.jpg" />
+    <Content Include="Content\images\story\pic1.jpg" />
+    <Content Include="Content\images\story\pic2.jpg" />
+    <Content Include="Content\images\story\pic3.jpg" />
+    <Content Include="Content\images\story\pic4.jpg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\fancybox\lib\jquery-1.10.1.min.js" />
+    <Content Include="Scripts\fancybox\lib\jquery-1.9.0.min.js" />
+    <Content Include="Scripts\fancybox\lib\jquery.mousewheel-3.0.6.pack.js" />
+    <Content Include="Scripts\fancybox\source\blank.gif" />
+    <Content Include="Scripts\fancybox\source\fancybox_loading%402x.gif" />
+    <Content Include="Scripts\fancybox\source\fancybox_loading.gif" />
+    <Content Include="Scripts\fancybox\source\fancybox_overlay.png" />
+    <Content Include="Scripts\fancybox\source\fancybox_sprite%402x.png" />
+    <Content Include="Scripts\fancybox\source\fancybox_sprite.png" />
+    <Content Include="Scripts\fancybox\source\helpers\fancybox_buttons.png" />
+    <Content Include="Scripts\fancybox\source\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="Scripts\fancybox\source\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="Scripts\fancybox\source\helpers\jquery.fancybox-media.js" />
+    <Content Include="Scripts\fancybox\source\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="Scripts\fancybox\source\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="Scripts\fancybox\source\jquery.fancybox.css" />
+    <Content Include="Scripts\fancybox\source\jquery.fancybox.js" />
+    <Content Include="Scripts\fancybox\source\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\fancybox\source\set.js" />
+    <Content Include="Scripts\GoogleAnalytics.js" />
+    <Content Include="Scripts\scroll.js" />
+    <Content Include="Views\Global.asax" />
+    <Content Include="Views\Shared\Manage\00.後台使用.txt" />
+    <Content Include="_Code\ckeditor_4.1.2_full\build-config.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\ckeditor.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\config.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\contents.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\af.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\ar.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\bg.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\bn.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\bs.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\ca.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\cs.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\cy.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\da.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\de.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\el.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\en-au.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\en-ca.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\en-gb.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\en.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\eo.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\es.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\et.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\eu.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\fa.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\fi.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\fo.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\fr-ca.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\fr.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\gl.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\gu.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\he.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\hi.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\hr.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\hu.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\is.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\it.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\ja.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\ka.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\km.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\ko.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\ku.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\lt.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\lv.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\mk.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\mn.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\ms.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\nb.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\nl.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\no.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\pl.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\pt-br.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\pt.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\ro.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\ru.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\si.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\sk.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\sl.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\sq.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\sr-latn.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\sr.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\sv.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\th.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\tr.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\ug.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\uk.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\vi.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\zh-cn.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\lang\zh.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\ar.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\bg.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\ca.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\cs.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\cy.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\da.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\de.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\el.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\en.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\eo.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\es.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\et.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\fa.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\fi.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\fr-ca.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\fr.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\gl.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\gu.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\he.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\hi.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\hr.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\hu.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\it.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\ja.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\km.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\ku.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\lt.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\lv.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\mk.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\mn.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\nb.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\nl.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\no.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\pl.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\pt-br.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\pt.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\ro.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\ru.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\si.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\sk.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\sl.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\sq.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\sv.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\th.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\tr.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\ug.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\uk.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\vi.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\about\dialogs\about.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\colordialog\dialogs\colordialog.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\dialog\dialogDefinition.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\div\dialogs\div.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\fakeobjects\images\spacer.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\find\dialogs\find.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\flash\dialogs\flash.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\flash\images\placeholder.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\forms\dialogs\button.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\forms\dialogs\checkbox.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\forms\dialogs\form.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\forms\dialogs\hiddenfield.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\forms\dialogs\radio.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\forms\dialogs\select.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\forms\dialogs\textarea.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\forms\dialogs\textfield.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\forms\images\hiddenfield.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\icons.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\iframe\dialogs\iframe.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\iframe\images\placeholder.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\image\dialogs\image.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\image\images\noimage.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\link\dialogs\anchor.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\link\dialogs\link.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\link\images\anchor.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\liststyle\dialogs\liststyle.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\magicline\images\icon.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\pagebreak\images\pagebreak.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\pastefromword\filter\default.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\preview\preview.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\scayt\dialogs\options.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\showblocks\images\block_address.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\showblocks\images\block_blockquote.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\showblocks\images\block_div.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\showblocks\images\block_h1.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\showblocks\images\block_h2.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\showblocks\images\block_h3.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\showblocks\images\block_h4.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\showblocks\images\block_h5.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\showblocks\images\block_h6.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\showblocks\images\block_p.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\showblocks\images\block_pre.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\dialogs\smiley.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\angel_smile.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\angry_smile.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\broken_heart.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\confused_smile.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\cry_smile.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\devil_smile.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\embaressed_smile.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\embarrassed_smile.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\envelope.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\heart.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\kiss.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\lightbulb.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\omg_smile.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\regular_smile.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\sad_smile.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\shades_smile.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\teeth_smile.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\thumbs_down.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\thumbs_up.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\tongue_smile.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\tounge_smile.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\whatchutalkingabout_smile.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\smiley\images\wink_smile.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\bg.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\ca.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\cs.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\cy.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\de.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\el.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\en.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\eo.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\es.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\et.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\fa.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\fi.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\fr-ca.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\fr.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\gl.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\he.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\hr.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\hu.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\it.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\ku.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\lv.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\nb.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\nl.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\no.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\pl.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\pt-br.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\ru.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\si.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\sk.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\sq.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\sv.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\th.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\tr.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\ug.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\zh-cn.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\table\dialogs\table.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\templates\dialogs\templates.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\templates\dialogs\templates.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\templates\templates\default.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\templates\templates\images\template1.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\templates\templates\images\template2.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\templates\templates\images\template3.gif" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\wsc\dialogs\tmp.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\wsc\dialogs\wsc_ie.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\ajax.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\api.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\appendto.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\assets\inlineall\logo.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\assets\outputxhtml\outputxhtml.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\assets\sample.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\assets\sample.jpg" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\assets\uilanguages\languages.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\datafiltering.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\divreplace.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\index.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\inlineall.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\inlinebycode.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\plugins\dialog\assets\my_dialog.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\plugins\dialog\dialog.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\plugins\enterkey\enterkey.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.swf" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\plugins\htmlwriter\assets\outputforflash\swfobject.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\plugins\htmlwriter\outputforflash.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\plugins\htmlwriter\outputhtml.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\plugins\magicline\magicline.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\plugins\toolbar\toolbar.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\plugins\wysiwygarea\fullpage.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\readonly.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\replacebyclass.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\replacebycode.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\sample.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\sample.js" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\tabindex.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\uicolor.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\uilanguages.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\xhtmlstyle.html" />
+    <Content Include="_Code\ckeditor_4.1.2_full\skins\moono\dialog.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\skins\moono\dialog_ie.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\skins\moono\dialog_ie7.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\skins\moono\dialog_ie8.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\skins\moono\dialog_iequirks.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\skins\moono\dialog_opera.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\skins\moono\editor.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\skins\moono\editor_gecko.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\skins\moono\editor_ie.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\skins\moono\editor_ie7.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\skins\moono\editor_ie8.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\skins\moono\editor_iequirks.css" />
+    <Content Include="_Code\ckeditor_4.1.2_full\skins\moono\icons.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\skins\moono\images\arrow.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\skins\moono\images\close.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\skins\moono\images\mini.png" />
+    <Content Include="_Code\ckeditor_4.1.2_full\styles.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\bin\Debug\CKFinder.dll" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\bin\Debug\CKFinder.pdb" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\changelog.txt" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\ckfinder.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\ckfinder.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\ckfinder_v1.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\config.ascx" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\config.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\connector.aspx" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\bg.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\ca.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\cs.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\cy.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\da.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\de.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\el.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\en.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\eo.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\es-mx.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\es.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\et.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\fa.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\fi.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\fr.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\gu.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\he.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\hi.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\hr.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\hu.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\it.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\ja.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\lt.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\lv.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\nb.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\nl.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\nn.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\no.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\pl.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\pt-br.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\ro.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\ru.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\sk.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\sl.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\sr.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\sv.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\tr.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\vi.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\zh-cn.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\core\connector\aspx\lang\zh-tw.xml" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\001.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\002.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\003.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\004.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\005.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\006.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\007.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\008.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\009.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\010.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\011.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\012.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\013.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\014.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\015.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\header.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\license.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\suggestions.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\files\toc.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\cs\index.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\001.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\002.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\003.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\004.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\005.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\006.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\007.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\008.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\009.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\010.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\011.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\012.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\013.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\014.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\015.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\header.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\license.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\suggestions.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\files\toc.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\en\index.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\001.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\002.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\003.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\004.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\005.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\006.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\007.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\008.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\009.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\010.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\011.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\012.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\013.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\header.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\001.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\002.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\003.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\004.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\005.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\006.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\007.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\008.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\009.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\010.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\011.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\012.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\013.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\014.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\015.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\016.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\017.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\018.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\019.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\images\020.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\license.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\suggestions.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\files\toc.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es-mx\index.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\001.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\002.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\003.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\004.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\005.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\006.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\007.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\008.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\009.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\010.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\011.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\012.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\013.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\header.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\001.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\002.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\003.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\004.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\005.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\006.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\007.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\008.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\009.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\010.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\011.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\012.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\013.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\014.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\015.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\016.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\017.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\018.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\019.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\images\020.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\license.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\suggestions.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\files\toc.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\es\index.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\002.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\003.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_basket_clear.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_basket_drag.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_basket_empty.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_basket_file_menu.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_basket_remove.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_already_exists.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_copied.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_delete.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_display_01.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_display_02.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_display_03.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_display_04.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_drag_copy.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_drag_move.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_menu.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_moved.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_pane.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_rename.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_resize.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_resize_both.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_resize_new.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_resize_overwrite.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_resize_resized.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_resize_thumbnails.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_select_hovered.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_select_selected.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_select_unselected.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_view_list.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_file_view_thumbnails.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_folder_collapse.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_folder_copied_from_basket.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_folder_delete.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_folder_expand.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_folder_loading.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_folder_menu.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_folder_moved_from_basket.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_folder_new.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_folder_pane.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_folder_rename.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_folder_select.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_interface.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_menu_arrow.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_menu_arrows.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_resize_lock.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_resize_reset.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_resize_unlock.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_settings.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_status_empty.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_status_file.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_status_folder.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_toolbar.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_toolbar_help.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_toolbar_refresh.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_upload_01.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_upload_03.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_upload_04.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_upload_09.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\images\CKFinder_upload_10.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\other\help.css" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\files\other\help.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\001.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\002.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\003.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\004.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\005.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\006.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\007.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\008.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\009.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\010.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\011.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\012.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\013.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\header.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\001.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\002.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\003.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\004.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\005.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\006.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\007.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\008.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\009.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\010.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\011.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\012.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\013.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\014.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\015.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\016.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\017.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\018.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\019.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\images\020.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\license.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\suggestions.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\files\toc.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\fi\index.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\001.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\002.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\003.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\004.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\005.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\006.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\007.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\008.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\009.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\010.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\011.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\012.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\013.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\header.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\001.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\002.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\003.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\004.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\005.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\006.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\007.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\008.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\009.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\010.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\011.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\012.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\013.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\014.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\015.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\016.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\017.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\018.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\019.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\images\020.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\license.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\suggestions.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\files\toc.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\lt\index.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\001.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\002.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\003.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\004.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\005.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\006.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\007.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\008.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\009.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\010.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\011.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\012.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\013.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\014.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\015.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\header.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\license.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\suggestions.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\files\toc.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\help\pl\index.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\install.txt" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\bg.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\ca.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\cs.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\cy.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\da.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\de.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\el.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\en.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\eo.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\es-mx.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\es.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\et.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\fa.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\fi.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\fr.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\gu.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\he.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\hi.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\hr.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\hu.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\it.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\ja.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\lt.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\lv.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\nb.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\nl.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\nn.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\no.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\pl.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\pt-br.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\ro.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\ru.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\sk.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\sl.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\sr.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\sv.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\tr.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\vi.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\zh-cn.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\zh-tw.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\lang\_translationstatus.txt" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\license.txt" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\dummy\lang\en.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\dummy\lang\pl.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\dummy\plugin.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\fileeditor\codemirror\lib\codemirror.css" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\fileeditor\codemirror\lib\codemirror.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\fileeditor\codemirror\mode\clike\clike.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\fileeditor\codemirror\mode\css\css.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\fileeditor\codemirror\mode\htmlmixed\htmlmixed.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\fileeditor\codemirror\mode\javascript\javascript.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\fileeditor\codemirror\mode\xml\xml.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\fileeditor\plugin.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\flashupload\flash\Uploader.swf" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\flashupload\Uploader.html" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\gallery\colorbox\colorbox.css" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\gallery\colorbox\images\border.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\gallery\colorbox\images\controls.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\gallery\colorbox\images\ie6\borderBottomCenter.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\gallery\colorbox\images\ie6\borderBottomLeft.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\gallery\colorbox\images\ie6\borderBottomRight.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\gallery\colorbox\images\ie6\borderMiddleLeft.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\gallery\colorbox\images\ie6\borderMiddleRight.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\gallery\colorbox\images\ie6\borderTopCenter.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\gallery\colorbox\images\ie6\borderTopLeft.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\gallery\colorbox\images\ie6\borderTopRight.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\gallery\colorbox\images\loading.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\gallery\colorbox\images\loading_background.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\gallery\colorbox\images\overlay.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\gallery\colorbox\jquery.colorbox-min.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\gallery\colorbox\jquery.min.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\gallery\colorbox\license.txt" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\imageresize\images\mini.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\imageresize\plugin.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\watermark\logo.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\app.css" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\host.css" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\ckffolder.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\ckffolderopened.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\ckfminus.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\ckfnothumb.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\ckfplus.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\ai.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\avi.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\bmp.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\cs.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\default.icon.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\dll.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\doc.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\docx.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\exe.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\fla.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\gif.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\jpg.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\js.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\mdb.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\mp3.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\ogg.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\pdf.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\ppt.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\pptx.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\rdp.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\swf.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\swt.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\txt.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\vsd.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\xls.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\xlsx.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\xml.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\16\zip.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\ai.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\avi.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\bmp.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\cs.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\default.icon.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\dll.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\doc.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\docx.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\exe.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\fla.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\gif.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\jpg.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\js.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\mdb.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\mp3.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\ogg.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\ogg.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\pdf.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\ppt.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\pptx.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\rdp.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\swf.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\swt.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\txt.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\vsd.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\xls.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\xlsx.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\xml.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\icons\32\zip.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\loaders\16x16.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\loaders\32x32.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\spacer.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\sprites.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\sprites_ie6.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\toolbar\add.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\toolbar\clear_basket.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\toolbar\delete.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\toolbar\download.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\toolbar\help.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\toolbar\maximize.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\toolbar\refresh.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\toolbar\settings.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\images\toolbar\view.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\richcombo.css" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\skin.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\kama\uipanel.css" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\app.css" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\host.css" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\ckffolder.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\ckffolderopened.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\ckfminus.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\ckfnothumb.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\ckfplus.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\dialog_sides.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\dialog_sides.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\dialog_sides_rtl.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\ai.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\avi.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\bmp.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\cs.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\default.icon.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\dll.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\doc.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\docx.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\exe.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\fla.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\gif.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\jpg.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\js.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\mdb.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\mp3.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\pdf.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\ppt.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\pptx.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\rdp.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\swf.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\swt.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\txt.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\vsd.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\xls.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\xlsx.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\xml.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\16\zip.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\ai.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\avi.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\bmp.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\cs.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\default.icon.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\dll.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\doc.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\docx.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\exe.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\fla.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\gif.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\jpg.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\js.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\mdb.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\mp3.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\pdf.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\ppt.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\pptx.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\rdp.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\swf.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\swt.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\txt.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\vsd.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\xls.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\xlsx.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\xml.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\icons\32\zip.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\loaders\16x16.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\loaders\32x32.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\spacer.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\sprites.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\sprites_ie6.png" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\toolbar\add.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\toolbar\clear_basket.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\toolbar\delete.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\toolbar\download.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\toolbar\help.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\toolbar\maximize.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\toolbar\refresh.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\toolbar\settings.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\toolbar\view.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\images\toolbar_start.gif" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\richcombo.css" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\skin.js" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\skins\v1\uipanel.css" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\translations.txt" />
+    <Content Include="_Code\jqScript\jquery-1.10.2.js" />
+    <Content Include="_Code\RPTExcel\memo.txt" />
+    <Content Include="_Code\WebDB\memo.txt" />
+    <Content Include="Areas\Sys_Active\Views\Message\EditData.cshtml" />
+    <Content Include="Areas\Sys_Active\Views\Message\ListData.cshtml" />
+    <Content Include="Areas\Sys_Example\Views\NewsData\EditData.cshtml" />
+    <Content Include="Areas\Sys_Example\Views\NewsData\ListData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\DocData\EditData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\DocData\ListData.cshtml" />
+    <Content Include="Content\images\products\sgs.pdf" />
+    <None Include="Properties\PublishProfiles\發行至檔案.pubxml" />
+    <Content Include="Scripts\jquery.nivo.slider.js" />
+    <Content Include="Views\Shared\EditorTemplates\vuc_DateTime.ascx" />
+    <Content Include="Views\Shared\EditorTemplates\vuc_LabelText.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="_Code\CSS\commStyle.css" />
+    <Content Include="_Code\CSS\formStyle.css" />
+    <Content Include="_Code\CSS\login.css" />
+    <Content Include="_Code\CSS\login.ie.css" />
+    <Content Include="_Code\Images\banner.jpg" />
+    <Content Include="_Code\Images\bg.gif" />
+    <Content Include="_Code\Images\btn_bg.gif" />
+    <Content Include="_Code\Images\form_line.gif" />
+    <Content Include="_Code\Images\h1_bg.gif" />
+    <Content Include="_Code\Images\header_bg.png" />
+    <Content Include="_Code\Images\login_bg.png" />
+    <Content Include="_Code\Images\pic.png" />
+    <Content Include="_Code\Images\sys_bg.gif" />
+    <Content Include="_Code\Images\sys_bg2.gif" />
+    <Content Include="_Code\jqScript\commfunc.js" />
+    <Content Include="_Code\jqScript\webfunc.js" />
+    <Content Include="_Code\jqScript\mobilefunc.js" />
+    <Content Include="_Code\Log\memo.txt" />
+    <Content Include="_Code\Maindoor\body\images\banner.jpg" />
+    <Content Include="_Code\Maindoor\body\images\inputBg.gif" />
+    <Content Include="_Code\Maindoor\body\images\leftBg.gif" />
+    <Content Include="_Code\Maindoor\body\images\leftNavBg.gif" />
+    <Content Include="_Code\Maindoor\body\images\login.gif" />
+    <Content Include="_Code\Maindoor\body\images\loginBg.gif" />
+    <Content Include="_Code\Maindoor\body\images\loginBg2.gif" />
+    <Content Include="_Code\Maindoor\body\images\loginBtn.gif" />
+    <Content Include="_Code\Maindoor\body\images\loginLogo.gif" />
+    <Content Include="_Code\Maindoor\body\images\login_out.gif" />
+    <Content Include="_Code\Maindoor\body\images\topBg.gif" />
+    <Content Include="_Code\SysUpFiles\memo.txt" />
+    <Content Include="_Code\Ashx\ValidateCode_AddMember.ashx" />
+    <Content Include="_Code\Ashx\ValidateCode_Forgot.ashx" />
+    <Content Include="_Code\Ashx\ValidateCode_Order.ashx" />
+    <Content Include="Views\Index\Index.cshtml" />
+    <Content Include="Views\Shared\Manage\includeFiledownload_iFrame.cshtml" />
+    <Content Include="Views\Shared\Manage\includeScript_Comm.cshtml" />
+    <Content Include="Views\Shared\Manage\includeScript_FineUpload.cshtml" />
+    <Content Include="Views\Shared\Manage\includeScript_Grid.cshtml" />
+    <Content Include="Views\Shared\Manage\SysLayoutPage.cshtml" />
+    <Content Include="Views\Shared\Manage\vucFooter.cshtml" />
+    <Content Include="Views\Shared\Manage\vucMenu.cshtml" />
+    <Content Include="Views\ContactUs\Index.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Views\News\News.cshtml" />
+    <Content Include="Views\News\News_list.cshtml" />
+    <Content Include="Views\Products\Products_list.cshtml" />
+    <Content Include="Views\Products\Products1_1.cshtml" />
+    <Content Include="Views\Products\Products1_2.cshtml" />
+    <Content Include="Views\Products\Products2_1.cshtml" />
+    <Content Include="Views\Products\Products2_2.cshtml" />
+    <Content Include="Views\Products\Products2_3.cshtml" />
+    <Content Include="Views\Products\Products3_1.cshtml" />
+    <Content Include="Views\Products\Products3_2.cshtml" />
+    <Content Include="Views\Products\Products3_3.cshtml" />
+    <Content Include="Views\Products\Products4_1.cshtml" />
+    <Content Include="Views\Story\Index.cshtml" />
+    <Content Include="Views\Manual\del.cshtml" />
+    <Content Include="Views\Manual\edit.cshtml" />
+    <Content Include="Views\Manual\add.cshtml" />
+    <Content Include="_Code\ckeditor_4.1.2_full\CHANGES.md" />
+    <Content Include="_Code\ckeditor_4.1.2_full\LICENSE.md" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\scayt\LICENSE.md" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\scayt\README.md" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\wsc\LICENSE.md" />
+    <Content Include="_Code\ckeditor_4.1.2_full\plugins\wsc\README.md" />
+    <Content Include="_Code\ckeditor_4.1.2_full\README.md" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\assets\posteddata.php" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
+    <Content Include="_Code\ckeditor_4.1.2_full\samples\sample_posteddata.php" />
+    <Content Include="_Code\ckeditor_4.1.2_full\skins\moono\readme.md" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\plugins\fileeditor\codemirror\LICENSE" />
+    <Content Include="_Code\ckfinder_aspnet_2.3.1\userfiles\.htaccess" />
+    <Content Include="Views\Products\Products5_1.cshtml" />
+    <Content Include="Views\Products\Products5_2.cshtml" />
+    <Content Include="Views\Products\Products5_3.cshtml" />
+    <Content Include="Views\Products\Products5_4.cshtml" />
+    <Content Include="Views\Products\Products5_5.cshtml" />
+    <Content Include="Views\Products\Products5_6.cshtml" />
+    <Content Include="Views\Products\Products5_7.cshtml" />
+    <Content Include="Views\Products\Products5_8.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Sys_Active\Views\Shared\" />
+    <Folder Include="Areas\Sys_Base\Views\Shared\" />
+    <Folder Include="Areas\Sys_Example\Views\Shared\" />
+    <Folder Include="_Code\CReport\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Work.BusinessLogic\Work.BusinessLogic.csproj">
+      <Project>{81f31d0b-5d7a-44f7-ba5b-362bf27fcc8d}</Project>
+      <Name>Work.BusinessLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Active\Views\Web.config" />
+    <Content Include="Areas\Sys_Active\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Code\ListData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\PowerUnit\EditData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\PowerUsers\EditData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Prog\EditData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Prog\ListData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\SystemLogin\index.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Unit\EditData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Unit\ListData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Users\EditData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Users\ListData.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Users\Password.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\Web.config" />
+    <Content Include="Areas\Sys_Base\Views\XYZ\Index.cshtml" />
+    <Content Include="Areas\Sys_Base\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Sys_Example\Views\Web.config" />
+    <Content Include="Areas\Sys_Example\Views\_ViewStart.cshtml" />
+    <Content Include="_Code\Ashx\AjaxDownLoadFile.ashx" />
+    <Content Include="_Code\Ashx\AjaxGetCounty.ashx" />
+    <Content Include="_Code\Ashx\AjaxGetZip.ashx" />
+    <Content Include="_Code\Ashx\ValidateCode.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Base\Views\Code\App_LocalResources\ListData.cshtml.resx" />
+    <Content Include="Areas\Sys_Base\Views\PowerUnit\App_LocalResources\EditData.cshtml.en-US.resx" />
+    <Content Include="Areas\Sys_Base\Views\PowerUnit\App_LocalResources\EditData.cshtml.resx" />
+    <Content Include="Areas\Sys_Base\Views\PowerUsers\App_LocalResources\EditData.cshtml.en-US.resx" />
+    <Content Include="Areas\Sys_Base\Views\PowerUsers\App_LocalResources\EditData.cshtml.resx" />
+    <Content Include="Areas\Sys_Base\Views\Prog\App_LocalResources\EditData.cshtml.resx" />
+    <Content Include="Areas\Sys_Base\Views\Prog\App_LocalResources\ListData.cshtml.resx" />
+    <Content Include="Areas\Sys_Base\Views\SystemLogin\App_LocalResources\index.cshtml.en-US.resx" />
+    <Content Include="Areas\Sys_Base\Views\SystemLogin\App_LocalResources\index.cshtml.resx" />
+    <Content Include="Areas\Sys_Base\Views\Unit\App_LocalResources\EditData.cshtml.resx" />
+    <Content Include="Areas\Sys_Base\Views\Unit\App_LocalResources\ListData.cshtml.resx" />
+    <Content Include="Areas\Sys_Base\Views\Users\App_LocalResources\EditData.cshtml.resx" />
+    <Content Include="Areas\Sys_Base\Views\Users\App_LocalResources\ListData.cshtml.resx" />
+    <Content Include="App_GlobalResources\Res.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Res.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Sys_Base\Views\Parm\App_LocalResources\ListData.cshtml.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Base\Views\Parm\ListData.cshtml" />
+    <None Include="Properties\PublishProfiles\發行至伺服器.pubxml" />
+    <Content Include="Views\Shared\Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Base\Views\Users\App_LocalResources\Password.cshtml.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Base\Views\Users\App_LocalResources\Password.cshtml.zh-CN.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Active\Views\Message\App_LocalResources\EditData.cshtml.resx" />
+    <Content Include="Areas\Sys_Active\Views\Message\App_LocalResources\ListData.cshtml.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Example\Views\NewsData\App_LocalResources\EditData.cshtml.resx" />
+    <Content Include="Areas\Sys_Example\Views\NewsData\App_LocalResources\ListData.cshtml.resx" />
+    <Content Include="Areas\Sys_Example\Views\NewsData\App_LocalResources\ListData.Mobile.cshtml.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys_Base\Views\DocData\App_LocalResources\EditData.cshtml.en-US.resx" />
+    <Content Include="Areas\Sys_Base\Views\DocData\App_LocalResources\ListData.cshtml.en-US.resx" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2908</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:4430/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

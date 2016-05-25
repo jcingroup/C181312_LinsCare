@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <body>
+	  <div id="page" data-role="page" data-theme="b">
+		  <div data-role="header" data-theme="b" style="margin-bottom: 10px">
+			<h1> Performance / Paging</h1>
+			<a href="../indexhtml.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+		  </div>
+			<table id='grid'></table>
+			<div id='pager'></div>
+			<script type='text/javascript'>
+				jQuery('#grid').jqGrid({
+					"hoverrows":false,
+					"viewrecords":true,
+					"jsonReader":{"repeatitems":false,"subgrid":{"repeatitems":false}},
+					"gridview":true,
+					"loadonce":true,
+					"url":"datav.json",
+					"scrollPaging":true,
+					"autowidth":true,
+					"rowNum":20,
+					"rowList" : [20,40,60],
+					"sortname":"OrderID",
+					"height":200,
+					"datatype":"json",
+					"colModel":[
+						{"name":"OrderID","index":"OrderID","sorttype":"int","key":true,"width":80,"editable":true},
+						{"name":"OrderDate","index":"OrderDate","sorttype":"datetime","formatter":"date","formatoptions":{"srcformat":"Y-m-d H:i:s","newformat":"m/d/Y"},"editable":true},
+						{"name":"ShipName","index":"ShipName","sorttype":"string","editable":true},
+						{"name":"Freight","index":"Freight","sorttype":"numeric","editable":true}
+					],
+					"loadError":function(xhr,status, err){ 
+						try {
+							jQuery.jgrid.info_dialog(jQuery.jgrid.errors.errcap,'<div class="ui-state-error">'+ xhr.responseText +'</div>', jQuery.jgrid.edit.bClose,
+							{buttonalign:'right'});
+						} catch(e) { 
+							alert(xhr.responseText);} 
+					},
+					"pager":"#pager",
+					"editurl":"nosavedata"
+				});
+				jQuery('#grid').jqGrid('navGrid','#pager',{add:true, edit:false, del:false},{},{reloadAfterSubmit:false, closeAfterAdd:true},{},{multipleSearch:true});
+				setTimeout(function() {
+					SyntaxHighlighter.highlight({useScriptTags:false}, '')},
+				100);
+	</script>
+	<div data-role="collapsible" data-theme="b" data-content-theme="b">
+	<h3>View Code</h3>
+	<pre>
+	<!-- HTML Definition -->
+
+	&lt;div id="page" data-role="page" data-theme="b">
+    ...
+		&lt;table id='grid'&gt;&lt;/table&gt;
+		&lt;div id='pager'&gt;&lt;/div&gt;
+
+		<!-- Java Script Code -->
+		&lt;script type='text/javascript'&gt;
+			jQuery('#grid').jqGrid({
+				"hoverrows":false,
+				"viewrecords":true,
+				"jsonReader":{"repeatitems":false,"subgrid":{"repeatitems":false}},
+				"gridview":true,
+				"loadonce":true,
+				"url":"datav.json",
+				"scrollPaging":true,
+				"autowidth":true,
+				"rowNum":20,
+				"rowList" : [20,40,60],
+				"sortname":"OrderID",
+				"height":200,
+				"datatype":"json",
+				"colModel":[
+					{"name":"OrderID","index":"OrderID","sorttype":"int","key":true,"width":80,"editable":true},
+					{"name":"OrderDate","index":"OrderDate","sorttype":"datetime","formatter":"date","formatoptions":{"srcformat":"Y-m-d H:i:s","newformat":"m/d/Y"},"editable":true},
+					{"name":"ShipName","index":"ShipName","sorttype":"string","editable":true},
+					{"name":"Freight","index":"Freight","sorttype":"numeric","editable":true}
+				],
+				"loadError":function(xhr,status, err){ 
+					try {
+						jQuery.jgrid.info_dialog(jQuery.jgrid.errors.errcap,'<div class="ui-state-error">'+ xhr.responseText +'</div>', jQuery.jgrid.edit.bClose,
+						{buttonalign:'right'});
+					} catch(e) { 
+						alert(xhr.responseText);} 
+				},
+				"pager":"#pager"
+			});
+		...
+		&lt;/script&gt;
+	&lt;/div&gt;
+	</pre>
+	</div>
+	  </div>
+   </body>
+</html>

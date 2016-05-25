@@ -1,0 +1,111 @@
+﻿@{
+    Layout = null;
+}
+@model ProcCore.Business.Logic.m_Users
+@using ProcCore.JqueryHelp;
+@using ProcCore.JqueryHelp.FormvValidate;
+@using ProcCore.JqueryHelp.ElementAjaxScriptHelp;
+@using ProcCore.NetExtension;
+@{
+    funcMethodModule func = new funcMethodModule() { funcName = "$.FormResultJson", MakeStyle = funcMethodModule.funcMakeStyle.jqfunc };
+    func.funcParam.Add("response");
+    func.funcString = @"
+                            var jsonobj = jQuery.parseJSON(response);
+                            if(jsonobj.result){
+                                document.location.href = jsonobj.url;
+                            }
+                            else
+                            {
+                                $.UiMessage(jsonobj);
+                                $.ReloadVildate();
+                            }";
+    }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@Resources.Res.Info_Company</title>
+    <link rel="Stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/redmond/jquery-ui.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="~/_Code/CSS/login.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/localization/messages_zh_TW.js"></script>
+    <script type="text/javascript" src="~/_Code/jqScript/jquery.unobtrusive-ajax.js"></script>
+    <script type="text/javascript" src="~/_Code/jqScript/commfunc.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1>@Resources.Res.CompanyName<span>Web Manager</span></h1>
+            <!--<h2>Web Manager</h2>-->
+        </div>
+        <!-- header //-->
+        <div id="main">
+
+            <div class="pic"></div>
+
+            @using (Ajax.BeginForm(null, null, null, new AjaxOptions() { 
+                HttpMethod = "post", 
+                Url = Url.Action("ajax_Login"),OnSuccess=func.funcName}, 
+                new { id = CommWebSetup.eleNameMasterDataForm }))
+            {
+                <p class="lid">
+                    <label>語系 Language</label>
+                    @Html.DropDownList("lang", (List<SelectListItem>)ViewBag.Lang_Option)
+                </p>
+                <p class="lid">
+                    <label>帳號 Username</label>
+                    <input name="account" type="text" value="" tabindex="1" />
+                </p>
+
+                <p class="pwd">
+                    <label>密碼 Password</label>
+                    <input name="password" type="password" value="" tabindex="2" />
+                </p>
+                               
+                <p class="code">
+                    <label>驗証碼 Code</label>
+                    <img src="~/_Code/Ashx/ValidateCode.ashx" alt="輸入驗證碼並區分大小寫" id="vildate" />
+                    <input type="text" name="img_vildate" tabindex="3" style="width: 30%" />
+                </p>
+                <p class="btn">
+                    <input type="submit" class="btn" id="btn_submit" value="登入" tabindex="4" />
+                </p>
+            }
+        </div>
+        <!-- main //-->
+
+    </div>
+    <!-- container //-->
+    <div id="dialog" title="" style="display: none;"></div>
+    @{
+        FormValidateSetup val_frm_a = new FormValidateSetup(new jqSelector() { IdName = CommWebSetup.eleNameMasterDataForm });
+        val_frm_a.Add(Html.FieldsRuleSetup("account", new FieldRule() { required = true }, null, null));
+        val_frm_a.Add(Html.FieldsRuleSetup("password", new FieldRule() { required = true }, null, null));
+
+        ElementAjaxHandle ele = new ElementAjaxHandle(new ProcCore.JqueryHelp.jqSelector() { IdName = "lang" });
+
+        ele.Event = HtmlObjectEvent.change;
+        ele.ajax.url = "ajax_Lang";
+        ele.ajax.data.Add("lang", "$('#lang').val()");
+        }
+    <script type="text/javascript">
+        $(document).ready(function () {
+            @Html.Raw(func.ToScriptString())
+            @Html.Raw(val_frm_a.ToScriptString())
+            @Html.Raw(ele.ToScriptString())
+
+            $('#lang').trigger('change');
+        });
+
+        (function ($) {
+            $.ReloadVildate = function () {
+                $('#vildate').attr('src', '@Url.Content("~/_Code/Ashx/ValidateCode.ashx")?Id=' + uniqid());
+                $('#img_vildate').val('');
+            }
+        })(jQuery);
+    </script>
+</body>
+</html>
+

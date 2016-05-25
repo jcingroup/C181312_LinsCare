@@ -1,0 +1,100 @@
+﻿@charset "utf-8";
+
+
+/*      basic elements
+-----------------------------------------------------------------------*/
+body {
+ background:url('../../images/bg.jpg') repeat-x;
+ font:normal 0.95em/150% Tahoma,sans-serif;
+ color:#503E0D;
+ }
+
+a {
+ color:#7A6022;
+ transition:color 0.5s;
+ }
+a:hover {
+ color:#839C3C;
+ }
+
+p {
+ margin-bottom:10px;
+ }
+strong {font-weight:bold;}
+
+h3 {
+ margin:0 0 10px 0;
+ padding-left:5px;
+ font:bold 1.4em '微軟正黑體','Microsoft JhengHei',Tahoma, sans-serif;
+ color:#839C3C;
+ border-left:5px solid #BA9E50;
+ }
+h3 span {
+ margin-left:5px;
+ font:bold 0.8em 'Times New Roman',serif;
+ color:#A8985C;
+ }
+
+h4 {
+ margin:20px 0 10px 0;
+ padding-bottom:10px;
+ font:bold 1.1em '微軟正黑體','Microsoft JhengHei',Tahoma, sans-serif;
+ color:#C28F01;
+ background:url('../../images/dot.gif') repeat-x left bottom;
+ clear:both;
+ }
+
+table { }
+td { }
+
+blockquote {
+	margin-bottom:10px;
+	font-size: 0.9em;
+	color:#686B10;
+}
+blockquote p {margin-bottom:5px;}
+
+input,
+select,
+textarea { }
+select { }
+
+iframe { }
+
+fieldset { }
+legend { }
+
+hr {
+ height:1px;
+ margin-bottom:30px;
+ background:url('../../images/dot.gif') repeat-x;
+ border:none;
+ clear:both;
+ }
+
+ sup {
+ 	vertical-align: super;
+    font-size: smaller;
+ }
+
+
+/*      Generic Classes
+-----------------------------------------------------------------------*/
+.full { width:100% } /* 寬度100% */
+.half { width:50%; } /* 寬度50% */
+.center { text-align:center; } /* 水平置中,文字置中 */
+.valignM { vertical-align:middle; } /* 垂直置中 */
+.floatL { float:left } /* 文繞圖-左 */
+.floatR { float:right } /* 文繞圖-右 */
+.textL { text-align:left; } /* 向左對齊 */
+.textR { text-align:right; } /* 向右對齊 */
+.clearfix { clear:both } /* 清除浮動 */
+.error { color:#D50000 } /* 錯誤時顯示 */
+.hide {display:none; visibility:hidden;} /* 隱藏 */
+
+.btn {
+ display:inline-block;
+ cursor:pointer;
+ }
+.btn:hover {
+ }
