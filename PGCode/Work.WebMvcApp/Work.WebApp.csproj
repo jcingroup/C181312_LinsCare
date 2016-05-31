@@ -27,6 +27,7 @@
     <TargetFrameworkProfile />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -280,6 +281,27 @@
     <Content Include="Content\images\products\c5_7_b.jpg" />
     <Content Include="Content\images\products\c5_8.jpg" />
     <Content Include="Content\images\products\c5_8_b.jpg" />
+    <Content Include="Content\images\products\c6_1.jpg" />
+    <Content Include="Content\images\products\c6_1_b.jpg" />
+    <Content Include="Content\images\products\c6_2.jpg" />
+    <Content Include="Content\images\products\c6_2_b.jpg" />
+    <Content Include="Content\images\products\c6_3.jpg" />
+    <Content Include="Content\images\products\c6_3_b.jpg" />
+    <Content Include="Content\images\products\c6_4.jpg" />
+    <Content Include="Content\images\products\c6_4_b.jpg" />
+    <Content Include="Content\images\products\c6_5.jpg" />
+    <Content Include="Content\images\products\c6_5_b.jpg" />
+    <Content Include="Content\images\products\c6_6.jpg" />
+    <Content Include="Content\images\products\c6_6_b.jpg" />
+    <Content Include="Content\images\products\c7_1.jpg" />
+    <Content Include="Content\images\products\c7_1_b.jpg" />
+    <Content Include="Content\images\products\c7_2.jpg" />
+    <Content Include="Content\images\products\c7_2_b.jpg" />
+    <Content Include="Content\images\products\c7_3.jpg" />
+    <Content Include="Content\images\products\c7_3_b.jpg" />
+    <Content Include="Content\images\products\c7_4.jpg" />
+    <Content Include="Content\images\products\c7_4_b.jpg" />
+    <Content Include="Content\images\products\hubbards_award.jpg" />
     <Content Include="Content\images\products\manuka.jpg" />
     <Content Include="Content\images\products\manuka_b.jpg" />
     <Content Include="Content\images\products\noPic.jpg" />
@@ -289,6 +311,8 @@
     <Content Include="Content\images\story\pic2.jpg" />
     <Content Include="Content\images\story\pic3.jpg" />
     <Content Include="Content\images\story\pic4.jpg" />
+    <Content Include="Content\images\story\pic5.gif" />
+    <Content Include="Content\images\story\pic6.gif" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\fancybox\lib\jquery-1.10.1.min.js" />
     <Content Include="Scripts\fancybox\lib\jquery-1.9.0.min.js" />
@@ -1270,6 +1294,16 @@
     <Content Include="Views\Products\Products5_6.cshtml" />
     <Content Include="Views\Products\Products5_7.cshtml" />
     <Content Include="Views\Products\Products5_8.cshtml" />
+    <Content Include="Views\Products\Products6_1.cshtml" />
+    <Content Include="Views\Products\Products6_2.cshtml" />
+    <Content Include="Views\Products\Products6_3.cshtml" />
+    <Content Include="Views\Products\Products6_4.cshtml" />
+    <Content Include="Views\Products\Products6_5.cshtml" />
+    <Content Include="Views\Products\Products6_6.cshtml" />
+    <Content Include="Views\Products\Products7_1.cshtml" />
+    <Content Include="Views\Products\Products7_2.cshtml" />
+    <Content Include="Views\Products\Products7_3.cshtml" />
+    <Content Include="Views\Products\Products7_4.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Sys_Active\Views\Shared\" />
