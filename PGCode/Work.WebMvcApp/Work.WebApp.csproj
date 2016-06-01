@@ -277,6 +277,8 @@
     <Content Include="Content\images\products\c5_4_b.jpg" />
     <Content Include="Content\images\products\c5_5.jpg" />
     <Content Include="Content\images\products\c5_5_b.jpg" />
+    <Content Include="Content\images\products\c5_6.jpg" />
+    <Content Include="Content\images\products\c5_6_b.jpg" />
     <Content Include="Content\images\products\c5_7.jpg" />
     <Content Include="Content\images\products\c5_7_b.jpg" />
     <Content Include="Content\images\products\c5_8.jpg" />
@@ -293,12 +295,16 @@
     <Content Include="Content\images\products\c6_5_b.jpg" />
     <Content Include="Content\images\products\c6_6.jpg" />
     <Content Include="Content\images\products\c6_6_b.jpg" />
+    <Content Include="Content\images\products\c7_1-2.jpg" />
     <Content Include="Content\images\products\c7_1.jpg" />
     <Content Include="Content\images\products\c7_1_b.jpg" />
+    <Content Include="Content\images\products\c7_2-2.jpg" />
     <Content Include="Content\images\products\c7_2.jpg" />
     <Content Include="Content\images\products\c7_2_b.jpg" />
+    <Content Include="Content\images\products\c7_3-2.jpg" />
     <Content Include="Content\images\products\c7_3.jpg" />
     <Content Include="Content\images\products\c7_3_b.jpg" />
+    <Content Include="Content\images\products\c7_4-2.jpg" />
     <Content Include="Content\images\products\c7_4.jpg" />
     <Content Include="Content\images\products\c7_4_b.jpg" />
     <Content Include="Content\images\products\hubbards_award.jpg" />
