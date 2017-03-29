@@ -127,5 +127,33 @@ namespace DotWeb.WebApp.Controllers
         {
             return View();
         }
+        public ActionResult Products8_1()
+        {
+            return View();
+        }
+        public ActionResult Products8_2()
+        {
+            return View();
+        }
+        public ActionResult Products8_3()
+        {
+            return View();
+        }
+        public ActionResult Products8_4()
+        {
+            return View();
+        }
+        public ActionResult Products8_5()
+        {
+            return View();
+        }
+        public ActionResult Products8_6()
+        {
+            return View();
+        }
+        public ActionResult Products8_7()
+        {
+            return View();
+        }
     }
 }

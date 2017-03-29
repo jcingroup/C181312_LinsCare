@@ -307,6 +307,20 @@
     <Content Include="Content\images\products\c7_4-2.jpg" />
     <Content Include="Content\images\products\c7_4.jpg" />
     <Content Include="Content\images\products\c7_4_b.jpg" />
+    <Content Include="Content\images\products\c8_1.jpg" />
+    <Content Include="Content\images\products\c8_1_b.jpg" />
+    <Content Include="Content\images\products\c8_2.jpg" />
+    <Content Include="Content\images\products\c8_2_b.jpg" />
+    <Content Include="Content\images\products\c8_3.jpg" />
+    <Content Include="Content\images\products\c8_3_b.jpg" />
+    <Content Include="Content\images\products\c8_4.jpg" />
+    <Content Include="Content\images\products\c8_4_b.jpg" />
+    <Content Include="Content\images\products\c8_5.jpg" />
+    <Content Include="Content\images\products\c8_5_b.jpg" />
+    <Content Include="Content\images\products\c8_6.jpg" />
+    <Content Include="Content\images\products\c8_6_b.jpg" />
+    <Content Include="Content\images\products\c8_7.jpg" />
+    <Content Include="Content\images\products\c8_7_b.jpg" />
     <Content Include="Content\images\products\hubbards_award.jpg" />
     <Content Include="Content\images\products\manuka.jpg" />
     <Content Include="Content\images\products\manuka_b.jpg" />
@@ -1310,6 +1324,13 @@
     <Content Include="Views\Products\Products7_2.cshtml" />
     <Content Include="Views\Products\Products7_3.cshtml" />
     <Content Include="Views\Products\Products7_4.cshtml" />
+    <Content Include="Views\Products\Products8_1.cshtml" />
+    <Content Include="Views\Products\Products8_2.cshtml" />
+    <Content Include="Views\Products\Products8_3.cshtml" />
+    <Content Include="Views\Products\Products8_4.cshtml" />
+    <Content Include="Views\Products\Products8_5.cshtml" />
+    <Content Include="Views\Products\Products8_6.cshtml" />
+    <Content Include="Views\Products\Products8_7.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Sys_Active\Views\Shared\" />
