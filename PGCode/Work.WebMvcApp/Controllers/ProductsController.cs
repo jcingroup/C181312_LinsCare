@@ -155,5 +155,23 @@ namespace DotWeb.WebApp.Controllers
         {
             return View();
         }
+
+        // 2020.08 upt
+        public ActionResult Products8_8()
+        {
+            return View();
+        }
+        public ActionResult Products8_9()
+        {
+            return View();
+        }
+        public ActionResult Products8_10()
+        {
+            return View();
+        }
+        public ActionResult Products8_11()
+        {
+            return View();
+        }
     }
 }
