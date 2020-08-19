@@ -28,6 +28,7 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -307,6 +308,14 @@
     <Content Include="Content\images\products\c7_4-2.jpg" />
     <Content Include="Content\images\products\c7_4.jpg" />
     <Content Include="Content\images\products\c7_4_b.jpg" />
+    <Content Include="Content\images\products\c8\anzac-copy.jpg" />
+    <Content Include="Content\images\products\c8\Black Forest 1.jpg" />
+    <Content Include="Content\images\products\c8\black-forest.png" />
+    <Content Include="Content\images\products\c8\BOS-Sultana-&amp;-Manuka-Honey.png" />
+    <Content Include="Content\images\products\c8\DM3-02.jpg" />
+    <Content Include="Content\images\products\c8\DM3-3-03.jpg" />
+    <Content Include="Content\images\products\c8\Very Berry 1.jpg" />
+    <Content Include="Content\images\products\c8\very-berry.png" />
     <Content Include="Content\images\products\c8_1-2.jpg" />
     <Content Include="Content\images\products\c8_1.jpg" />
     <Content Include="Content\images\products\c8_1_b.jpg" />
@@ -1338,6 +1347,10 @@
     <Content Include="Views\Products\Products8_5.cshtml" />
     <Content Include="Views\Products\Products8_6.cshtml" />
     <Content Include="Views\Products\Products8_7.cshtml" />
+    <Content Include="Views\Products\Products8_8.cshtml" />
+    <Content Include="Views\Products\Products8_9.cshtml" />
+    <Content Include="Views\Products\Products8_10.cshtml" />
+    <Content Include="Views\Products\Products8_11.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Sys_Active\Views\Shared\" />
